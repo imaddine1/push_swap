@@ -6,7 +6,7 @@
 /*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 10:44:32 by iharile           #+#    #+#             */
-/*   Updated: 2022/02/05 12:46:42 by iharile          ###   ########.fr       */
+/*   Updated: 2022/02/05 16:56:45 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,14 +56,39 @@ int	check_double(char **str)
 	return (1);
 }
 
+int	max_int(char *str)
+{
+	int		sign;
+	long	res;
+	int		i;
+
+	i = 0;
+	sign = 1;
+	res = 0;
+	if (str[i] == '-')
+	{
+		sign *= (-1);
+		i++;
+	}
+	while (str[i])
+	{
+		if (str[i] >= '0' && str[i] <= '9')
+			res = res * 10 + str[i] - '0';
+		else
+			return (0);
+		i++;
+	}
+	if (res * sign < -2147483648 || res * sign > 2147483647)
+		return (0);
+	return (1);
+}
+
 int	check_int(char **str)
 {
-	int	i;
-	int	j;
+	int		i;
+	int		j;
 
 	j = 1;
-	if (!str)
-		return (0);
 	while (str[j])
 	{
 		i = 0;
@@ -71,7 +96,7 @@ int	check_int(char **str)
 			i++;
 		while (str[j][i])
 		{
-			if (!(str[j][i] >= '0' && str[j][i] <= '9'))
+			if (!(str[j][i] >= '0' && str[j][i] <= '9') || !max_int(str[j]))
 				return (0);
 			i++;
 		}
@@ -87,6 +112,8 @@ int	main(int ac, char **av)
 
 	i = 1;
 	j = 0;
+	if (!av)
+		return (0);
 	if (ac == 1 || !check_int(av) || !check_double(av))
 	{
 		write (1, "Error\n", 6);
