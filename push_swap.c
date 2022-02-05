@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/05 10:44:32 by iharile           #+#    #+#             */
+/*   Updated: 2022/02/05 10:44:51 by iharile          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "facile.h"
 
 int	ft_strlen(char *str)
@@ -49,7 +61,7 @@ int	check_int(char *str)
 	return (0);
 }
 
-int	main (int ac, char **av)
+int	main(int ac, char **av)
 {
 	int	i;
 	int	*integer;
