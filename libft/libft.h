@@ -6,7 +6,7 @@
 /*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 10:18:44 by iharile           #+#    #+#             */
-/*   Updated: 2021/11/22 09:04:16 by iharile          ###   ########.fr       */
+/*   Updated: 2022/02/06 12:40:13 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int		ft_strncmp(const char *s1, const char *s2, size_t n);
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
 char	*ft_strrchr(const char *s, int c);
-size_t	ft_strlen(const char *s);
+int		ft_strlen(const char *s);
 char	*ft_strnstr(const char *haystak, const char *needle, size_t len);
 int		ft_tolower(int c);
 int		ft_toupper(int c);
