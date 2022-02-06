@@ -6,13 +6,13 @@
 /*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/15 08:57:30 by iharile           #+#    #+#             */
-/*   Updated: 2021/11/22 12:02:26 by iharile          ###   ########.fr       */
+/*   Updated: 2022/02/06 14:06:40 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstnew(void *content)
+t_list	*ft_lstnew(int content)
 {
 	t_list	*x;
 

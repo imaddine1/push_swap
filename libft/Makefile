@@ -6,7 +6,7 @@
 #    By: iharile <iharile@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/08 12:57:38 by iharile           #+#    #+#              #
-#    Updated: 2021/11/21 14:49:33 by iharile          ###   ########.fr        #
+#    Updated: 2022/02/06 14:26:59 by iharile          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ ft_strchr.c ft_strnstr.c ft_isascii.c ft_memmove.c  ft_strrchr.c \
 ft_strdup.c 
 
 SRC_BONUS = ft_lstadd_back_bonus.c ft_lstadd_front_bonus.c ft_lstclear_bonus.c ft_lstdelone_bonus.c ft_lstiter_bonus.c ft_lstlast_bonus.c \
-	ft_lstmap_bonus.c ft_lstnew_bonus.c ft_lstsize_bonus.c 
+	ft_lstnew_bonus.c ft_lstsize_bonus.c 
 
 OBJ = $(SRC:.c=.o)
 OBJ_BONUS = $(SRC_BONUS:.c=.o)
