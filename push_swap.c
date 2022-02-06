@@ -6,7 +6,7 @@
 /*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 10:44:32 by iharile           #+#    #+#             */
-/*   Updated: 2022/02/06 11:53:12 by iharile          ###   ########.fr       */
+/*   Updated: 2022/02/06 12:11:05 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	main(int ac, char **av)
 	j = 0;
 	if (!av)
 		return (0);
-	if (ac == 1 || !check_int(av) || !check_double(av))
+	if (ac == 1 ||!check_int(av)|| !check_double(av))
 	{
 		write (1, "Error\n", 6);
 		exit(1);
