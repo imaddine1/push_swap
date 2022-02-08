@@ -6,11 +6,11 @@
 /*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 11:41:07 by iharile           #+#    #+#             */
-/*   Updated: 2022/02/06 13:23:11 by iharile          ###   ########.fr       */
+/*   Updated: 2022/02/08 11:55:56 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "check_inputs.h"
+#include "push_swap.h"
 #include "libft/libft.h"
 
 int	compare_string(char *s1, char *s2)
