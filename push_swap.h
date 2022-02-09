@@ -6,7 +6,7 @@
 /*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 10:40:39 by iharile           #+#    #+#             */
-/*   Updated: 2022/02/09 16:12:38 by iharile          ###   ########.fr       */
+/*   Updated: 2022/02/09 16:27:47 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,8 @@ int		check_int(char **str);
 void	sort_tab(int *arr, int lb, int ub);
 void	merge(int *arr, int lb, int mid, int ub);
 // global
-t_list	*g_stack_b;
-t_list	*g_stack_a;
+
 // pb pa
-void	pb(void);
-void	pa(void);
+void	pb(t_list **g_stack_a, t_list **g_stack_b);
+void	pa(t_list **g_stack_a, t_list **g_stack_b);
 #endif
