@@ -6,12 +6,40 @@
 /*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 10:44:32 by iharile           #+#    #+#             */
-/*   Updated: 2022/02/08 18:57:44 by iharile          ###   ########.fr       */
+/*   Updated: 2022/02/09 13:16:10 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "libft/libft.h"
+
+void	content_to_index(t_list *head, int *arr)
+{
+	int		i;
+	t_list	*new;
+	int		size;
+
+	size = ft_lstsize(head);
+	printf("the length is %d\n", size);
+	new = head;
+	while (new)
+	{
+		//printf ("first elem of node is %d\n", new->content);
+		i = 0;
+		while (i < size)
+		{
+			//printf ("first elem of array is %d\n", arr[i]);
+			if (new->content == arr[i])
+			{
+				new->content = i;
+				break ;
+			}
+			i++;
+		}
+		new = new->next;
+	}
+	new = head;
+}
 
 int	*array_of_int(char **av, int ac)
 {
@@ -48,10 +76,18 @@ int	main(int ac, char **av)
 		exit(1);
 	}
 	tab = array_of_int(av, ac);
-	sort_tab(tab, 0, ac - 1);
+	sort_tab(tab, 0, ac - 2);
+	i = 0;
+	while (i < ac - 1)
+	{
+		printf ("%d\n", tab[i]);
+		i++;
+	}
 	first = ft_lstnew(ft_atoi(av[--ac]));
 	while (ac > 1)
 		ft_lstadd_front(&first, ft_lstnew(ft_atoi(av[--ac])));
+	content_to_index(first, tab);
+	printf ("----------------\n");
 	while (first)
 	{
 		printf ("%d\n", first->content);
