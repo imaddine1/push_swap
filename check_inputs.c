@@ -6,7 +6,7 @@
 /*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 11:41:07 by iharile           #+#    #+#             */
-/*   Updated: 2022/02/10 12:22:48 by iharile          ###   ########.fr       */
+/*   Updated: 2022/02/10 13:16:12 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,8 @@ int	check_int(char **str)
 			return (0);
 		if (str[j][i] == '-' || str[j][i] == '+')
 			i++;
+		if (str[j][i] == '\0')
+			return (0);
 		while (str[j][i])
 		{
 			if (!(str[j][i] >= '0' && str[j][i] <= '9') || !max_int(str[j]))
