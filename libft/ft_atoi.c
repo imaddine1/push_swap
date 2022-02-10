@@ -6,7 +6,7 @@
 /*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 10:24:23 by iharile           #+#    #+#             */
-/*   Updated: 2021/11/21 16:19:06 by iharile          ###   ########.fr       */
+/*   Updated: 2022/02/10 12:21:19 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ int	ft_atoi(const char *str)
 			sign *= (-1);
 		str++;
 	}
+	if (*str == '\0')
+		return (NULL);
 	while (*str && (*str >= '0' && *str <= '9'))
 	{
 		res = res * 10 + *str - '0';

@@ -6,24 +6,12 @@
 /*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 11:41:07 by iharile           #+#    #+#             */
-/*   Updated: 2022/02/08 11:55:56 by iharile          ###   ########.fr       */
+/*   Updated: 2022/02/10 12:22:48 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "libft/libft.h"
-
-int	compare_string(char *s1, char *s2)
-{
-	size_t	i;
-
-	i = 0;
-	while (s1[i] && (s1[i] == s2[i]))
-		i++;
-	if ((ft_strlen(s1) == i) && (ft_strlen(s2) == i))
-		return (0);
-	return (1);
-}
 
 int	check_double(char **str)
 {
@@ -36,7 +24,7 @@ int	check_double(char **str)
 		k = j + 1;
 		while (str[k])
 		{
-			if (!compare_string(str[j], str[k]))
+			if (ft_atoi(str[j]) == ft_atoi(str[k]))
 				return (0);
 			k++;
 		}
@@ -54,17 +42,16 @@ int	max_int(char *str)
 	i = 0;
 	sign = 1;
 	res = 0;
-	if (str[i] == '-')
+	if (str[i] == '-' || str[i] == '+')
 	{
-		sign *= (-1);
+		if (str[i] == '-')
+			sign *= (-1);
 		i++;
 	}
 	while (str[i])
 	{
 		if (str[i] >= '0' && str[i] <= '9')
 			res = res * 10 + str[i] - '0';
-		else
-			return (0);
 		i++;
 	}
 	if (res * sign < -2147483648 || res * sign > 2147483647)
@@ -81,7 +68,9 @@ int	check_int(char **str)
 	while (str[j])
 	{
 		i = 0;
-		if (str[j][i] == '-')
+		if (str[j][i] == '\0')
+			return (0);
+		if (str[j][i] == '-' || str[j][i] == '+')
 			i++;
 		while (str[j][i])
 		{
