@@ -6,7 +6,7 @@
 /*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 10:44:32 by iharile           #+#    #+#             */
-/*   Updated: 2022/02/10 11:54:31 by iharile          ###   ########.fr       */
+/*   Updated: 2022/02/10 13:50:49 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,18 +76,18 @@ int	main(int ac, char **av)
 	while (ac > 1)
 		ft_lstadd_front(&g_stack_a, ft_lstnew(ft_atoi(av[--ac])));
 	content_to_index(g_stack_a, tab);
-	//pb(&g_stack_a, &g_stack_b);
-	//pb(&g_stack_a, &g_stack_b);
-	//pb(&g_stack_a, &g_stack_b);
-	//pb(&g_stack_a, &g_stack_b);
+	pb(&g_stack_a, &g_stack_b);
+	pb(&g_stack_a, &g_stack_b);
+	pb(&g_stack_a, &g_stack_b);
+	pb(&g_stack_a, &g_stack_b);
 	//rb(&g_stack_b);
 	//sb();
+	rrb(&g_stack_b);
 	while (g_stack_b)
 	{
 		printf("%d\n", g_stack_b->content);
 		g_stack_b = g_stack_b->next;
 	}
-	//rra(&g_stack_a);
 	//rra(&g_stack_a);
 	printf ("----------------\n");
 	while (g_stack_a)

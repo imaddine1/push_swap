@@ -6,7 +6,7 @@
 /*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 14:59:57 by iharile           #+#    #+#             */
-/*   Updated: 2022/02/10 11:27:45 by iharile          ###   ########.fr       */
+/*   Updated: 2022/02/10 13:49:14 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	pb(t_list **g_stack_a, t_list **g_stack_b)
 	t_list	*head;
 	t_list	*new;
 
-	if (!g_stack_a)
+	if (!*g_stack_a || ft_lstsize(*g_stack_a) < 1)
 		return ;
 	new = malloc(sizeof(t_list));
 	if (!new)
@@ -36,7 +36,7 @@ void	pa(t_list **g_stack_a, t_list **g_stack_b)
 	t_list	*head;
 	t_list	*new;
 
-	if (!g_stack_b)
+	if (!*g_stack_b || ft_lstsize(*g_stack_b) < 1)
 		return ;
 	head = (*g_stack_b);
 	new = malloc (sizeof(t_list));
@@ -116,10 +116,33 @@ void	rra(t_list **g_stack_a)
 	t_list	*last;
 	t_list	*new;
 
+	if (ft_lstsize(*g_stack_a) <= 1)
+		return ;
 	head = (*g_stack_a);
 	last = ft_lstlast((*g_stack_a));
 	new = ft_lstnew(last->content);
 	ft_lstadd_front(&(*g_stack_a), new);
+	while (head->next != NULL)
+	{
+		last = head;
+		head = head->next;
+	}
+	last->next = NULL;
+	free (head);
+}
+
+void	rrb(t_list **g_stack_b)
+{
+	t_list	*head;
+	t_list	*last;
+	t_list	*new;
+
+	if (ft_lstsize(*g_stack_b) <= 1)
+		return ;
+	head = (*g_stack_b);
+	last = ft_lstlast((*g_stack_b));
+	new = ft_lstnew(last->content);
+	ft_lstadd_front(&(*g_stack_b), new);
 	while (head->next != NULL)
 	{
 		last = head;
