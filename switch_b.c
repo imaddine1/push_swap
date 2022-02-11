@@ -6,7 +6,7 @@
 /*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 14:25:02 by iharile           #+#    #+#             */
-/*   Updated: 2022/02/10 14:43:41 by iharile          ###   ########.fr       */
+/*   Updated: 2022/02/11 18:07:30 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ void	pb(t_list **g_stack_a, t_list **g_stack_b)
 	head = (*g_stack_a);
 	(*g_stack_a) = head->next;
 	free (head);
+	write(1, "pb\n", 3);
 }
 
 void	rb(t_list **g_stack_b)
@@ -44,6 +45,7 @@ void	rb(t_list **g_stack_b)
 	ft_lstadd_back(&head, new);
 	(*g_stack_b) = (*g_stack_b)->next;
 	free (head);
+	write(1, "rb\n", 3);
 }
 
 void	sb(t_list **g_stack_b)
@@ -59,6 +61,7 @@ void	sb(t_list **g_stack_b)
 	temp = head->content;
 	head->content = second->content;
 	second->content = temp;
+	write(1, "sb\n", 3);
 }
 
 void	rrb(t_list **g_stack_b)
@@ -80,6 +83,7 @@ void	rrb(t_list **g_stack_b)
 	}
 	last->next = NULL;
 	free (head);
+	write(1, "rrb\n", 4);
 }
 
 void	ss(t_list **g_stack_a, t_list **g_stack_b)

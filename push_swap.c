@@ -6,7 +6,7 @@
 /*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 10:44:32 by iharile           #+#    #+#             */
-/*   Updated: 2022/02/11 11:45:53 by iharile          ###   ########.fr       */
+/*   Updated: 2022/02/11 18:15:03 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,11 +78,12 @@ int	main(int ac, char **av)
 	}
 	tab = array_of_int(av, ac);
 	sort_tab(tab, 0, ac - 2);
+	i = ac;
 	g_stack_a = ft_lstnew(ft_atoi(av[--ac]));
 	while (ac > 1)
 		ft_lstadd_front(&g_stack_a, ft_lstnew(ft_atoi(av[--ac])));
 	content_to_index(g_stack_a, tab);
-	printf("%d\n", check_is_sorted(&g_stack_a));
-
+	if (i == 4)
+		three_sort(&g_stack_a);
 	return (0);
 }
