@@ -6,7 +6,7 @@
 /*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 10:44:32 by iharile           #+#    #+#             */
-/*   Updated: 2022/02/10 14:48:02 by iharile          ###   ########.fr       */
+/*   Updated: 2022/02/11 11:45:53 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ int	main(int ac, char **av)
 		return (0);
 	if (ac == 1 || !check_int(av) || !check_double(av))
 	{
-		write (1, "Error\n", 6);
+		write (2, "Error\n", 6);
 		exit(1);
 	}
 	tab = array_of_int(av, ac);
@@ -82,24 +82,7 @@ int	main(int ac, char **av)
 	while (ac > 1)
 		ft_lstadd_front(&g_stack_a, ft_lstnew(ft_atoi(av[--ac])));
 	content_to_index(g_stack_a, tab);
-	//pb(&g_stack_a, &g_stack_b);
-	//pb(&g_stack_a, &g_stack_b);
-	//pb(&g_stack_a, &g_stack_b);
-	//pb(&g_stack_a, &g_stack_b);
-	//rb(&g_stack_b);
-	//sb();
-	//rr(&g_stack_a, &g_stack_b);
-	while (g_stack_b)
-	{
-		printf("%d\n", g_stack_b->content);
-		g_stack_b = g_stack_b->next;
-	}
-	//rra(&g_stack_a);
-	printf ("----------------\n");
-	while (g_stack_a)
-	{
-		printf ("%d\n", g_stack_a->content);
-		g_stack_a = g_stack_a->next;
-	}
+	printf("%d\n", check_is_sorted(&g_stack_a));
+
 	return (0);
 }

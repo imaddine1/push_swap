@@ -6,7 +6,7 @@
 /*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 10:40:39 by iharile           #+#    #+#             */
-/*   Updated: 2022/02/10 14:46:40 by iharile          ###   ########.fr       */
+/*   Updated: 2022/02/11 11:42:52 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,4 +40,7 @@ void	rrb(t_list **g_stack_b);
 void	rrr(t_list **g_stack_a, t_list **g_stack_b);
 void	ss(t_list **g_stack_a, t_list **g_stack_b);
 void	rr(t_list **g_stack_a, t_list **g_stack_b);
+// sorting stack
+int		check_is_sorted(t_list **g_stack_a);
+void	three_sort(t_list **g_stack_a);
 #endif
