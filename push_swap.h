@@ -6,7 +6,7 @@
 /*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 10:40:39 by iharile           #+#    #+#             */
-/*   Updated: 2022/02/15 13:16:24 by iharile          ###   ########.fr       */
+/*   Updated: 2022/02/15 18:14:30 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,4 +53,6 @@ int		check_is_sorted(t_list **g_stack_a);
 void	three_sort(t_list **g_stack_a, int i);
 void	sort_any_stack(t_list **g_stack_a, t_list **g_stack_b, int i,
 			t_sort *stack_checker);
+void	put_data(t_list **stack_a, t_sort *stack_checker, int min, int max);
+void	down_up(t_list **g_stack_a, int index);
 #endif

@@ -6,7 +6,7 @@
 /*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 11:57:06 by iharile           #+#    #+#             */
-/*   Updated: 2022/02/09 13:15:01 by iharile          ###   ########.fr       */
+/*   Updated: 2022/02/15 15:29:00 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,30 @@ void	sort_tab(int *arr, int lb, int ub)
 		merge(arr, lb, mid, ub);
 	}
 }
+
+int	check_is_sorted(t_list **g_stack_a)
+{
+	t_list	*head;
+	t_list	*consecutive;
+	t_list	*last;
+	int		i;
+
+	i = 1;
+	last = ft_lstlast((*g_stack_a));
+	head = (*g_stack_a);
+	consecutive = (*g_stack_a)->next;
+	while (consecutive)
+	{
+		if (head->content < consecutive->content)
+			i++;
+		head = head->next;
+		consecutive = consecutive->next;
+	}
+	if (i == ft_lstsize((*g_stack_a)))
+		return (0);
+	return (1);
+}
+
 /*
 int	main(int ac, char **av)
 {
