@@ -6,7 +6,7 @@
 /*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 10:40:39 by iharile           #+#    #+#             */
-/*   Updated: 2022/02/11 11:42:52 by iharile          ###   ########.fr       */
+/*   Updated: 2022/02/15 13:16:24 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,14 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <string.h>
+
+// struct for sort determine min & max
+typedef struct sort_helper
+{
+	int	min;
+	int	mid;
+	int	max;
+}	t_sort;
 
 // check inputs
 int		check_double(char **str);
@@ -42,5 +50,7 @@ void	ss(t_list **g_stack_a, t_list **g_stack_b);
 void	rr(t_list **g_stack_a, t_list **g_stack_b);
 // sorting stack
 int		check_is_sorted(t_list **g_stack_a);
-void	three_sort(t_list **g_stack_a);
+void	three_sort(t_list **g_stack_a, int i);
+void	sort_any_stack(t_list **g_stack_a, t_list **g_stack_b, int i,
+			t_sort *stack_checker);
 #endif
