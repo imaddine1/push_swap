@@ -6,7 +6,7 @@
 /*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 11:04:15 by iharile           #+#    #+#             */
-/*   Updated: 2022/02/16 10:21:32 by iharile          ###   ########.fr       */
+/*   Updated: 2022/02/16 15:38:53 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,19 +41,47 @@ void	three_sort(t_list **g_stack_a, int i)
 	}
 }
 
-void	down_up(t_list **g_stack_a, int *tab)
+void	first_to_push(t_list **g_stack_a, t_list **stack_b, int *tab, int size)
 {
 	int		i;
-	int		j;
+	int		index;
 	t_list	*last;
 	t_list	*head;
+	int		j;
 
-	i = 0;
+	index = 0;
 	j = 0;
-	last = ft_lstlast(*g_stack_a);	
+	printf("im here\n");
+	last = ft_lstlast(*g_stack_a);
+	head = *g_stack_a;
+	while (head && last->prev)
+	{
+		i = 0;
+		while (i < size)
+		{
+			if (tab[i] == head->content)
+				j = the_top(g_stack_a, stack_b, index);
+			else if (tab[i] == last->content)
+				j = the_bottom(g_stack_a, stack_b, index);
+			i++;
+		}
+		//printf ("im here %d\n", j);
+		index++;
+		head = head->next;
+		last = last->prev;
+		if (j == 1)
+		{
+			j = 0;
+			head = *g_stack_a;
+			last = ft_lstlast(*g_stack_a);
+			index = 0;
+			//printf ("this is begin %d this is end %d\n", head->content, last->content);
+		}
+	}
+	free (tab);
 }
 
-void	put_data(t_list **g_stack_a, int min, int max)
+void	put_data(t_list **g_stack_a, t_list **g_stack_b, int min, int max)
 {
 	t_list	*stack_a;
 	int		i;
@@ -77,8 +105,8 @@ void	put_data(t_list **g_stack_a, int min, int max)
 		i++;
 		stack_a = stack_a->next;
 	}
-	down_up(g_stack_a, tab);
 	printf ("\n");
+	first_to_push(g_stack_a, g_stack_b, tab, max - min);
 }
 
 void	sort_any_stack(t_list **g_stack_a, t_list **g_stack_b, int numbers)
@@ -99,7 +127,7 @@ void	sort_any_stack(t_list **g_stack_a, t_list **g_stack_b, int numbers)
 		while (i <= 4)
 		{
 			printf ("this is min = %d  max = %d\n", min , moves);
-			put_data (g_stack_a, min, moves);
+			put_data (g_stack_a, g_stack_b, min, moves);
 			min = moves;
 			moves += sum;
 			i++;
@@ -109,6 +137,6 @@ void	sort_any_stack(t_list **g_stack_a, t_list **g_stack_b, int numbers)
 	{
 		moves = min + last_move;
 		printf ("this is min = %d  max = %d\n", min , moves);
-		put_data (g_stack_a, min, moves);
+		put_data (g_stack_a, g_stack_a, min, moves);
 	}
 }
