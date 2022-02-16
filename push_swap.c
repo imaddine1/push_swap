@@ -6,7 +6,7 @@
 /*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 10:44:32 by iharile           #+#    #+#             */
-/*   Updated: 2022/02/15 13:09:09 by iharile          ###   ########.fr       */
+/*   Updated: 2022/02/16 10:12:10 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,6 @@ int	main(int ac, char **av)
 	int		*tab;
 	t_list	*g_stack_b;
 	t_list	*g_stack_a;
-	t_sort	*stack_checker;
 
 	if (!*av)
 		return (0);
@@ -84,6 +83,6 @@ int	main(int ac, char **av)
 	if (i == 4 || i == 3)
 		three_sort(&g_stack_a, i);
 	if (i > 4)
-		sort_any_stack(&g_stack_a, &g_stack_b, i - 1, stack_checker);
+		sort_any_stack(&g_stack_a, &g_stack_b, i - 1);
 	return (0);
 }

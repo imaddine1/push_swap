@@ -6,7 +6,7 @@
 /*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 10:18:44 by iharile           #+#    #+#             */
-/*   Updated: 2022/02/09 15:53:29 by iharile          ###   ########.fr       */
+/*   Updated: 2022/02/16 08:59:57 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
 typedef struct s_list
 {
+	struct s_list	*prev;
 	int				content;
 	struct s_list	*next;
 }	t_list;
