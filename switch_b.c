@@ -6,7 +6,7 @@
 /*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 14:25:02 by iharile           #+#    #+#             */
-/*   Updated: 2022/02/11 18:07:30 by iharile          ###   ########.fr       */
+/*   Updated: 2022/02/16 17:48:11 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ void	pb(t_list **g_stack_a, t_list **g_stack_b)
 	(*g_stack_b) = new;
 	head = (*g_stack_a);
 	(*g_stack_a) = head->next;
+	(*g_stack_a)->prev = NULL;
 	free (head);
 	write(1, "pb\n", 3);
 }

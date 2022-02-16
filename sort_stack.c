@@ -6,7 +6,7 @@
 /*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 11:04:15 by iharile           #+#    #+#             */
-/*   Updated: 2022/02/16 15:38:53 by iharile          ###   ########.fr       */
+/*   Updated: 2022/02/16 18:55:51 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,11 +51,12 @@ void	first_to_push(t_list **g_stack_a, t_list **stack_b, int *tab, int size)
 
 	index = 0;
 	j = 0;
-	printf("im here\n");
 	last = ft_lstlast(*g_stack_a);
 	head = *g_stack_a;
-	while (head && last->prev)
+//	printf ("head is %d\n", head->prev);
+	while (head && last)
 	{
+		//printf ("we can be here\n");
 		i = 0;
 		while (i < size)
 		{
@@ -136,7 +137,7 @@ void	sort_any_stack(t_list **g_stack_a, t_list **g_stack_b, int numbers)
 	if (last_move > 0)
 	{
 		moves = min + last_move;
-		printf ("this is min = %d  max = %d\n", min , moves);
-		put_data (g_stack_a, g_stack_a, min, moves);
+		printf ("this is min = %d  max = %d\n", min, moves);
+		put_data (g_stack_a, g_stack_b, min, moves);
 	}
 }

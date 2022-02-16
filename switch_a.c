@@ -6,7 +6,7 @@
 /*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 14:59:57 by iharile           #+#    #+#             */
-/*   Updated: 2022/02/11 18:06:35 by iharile          ###   ########.fr       */
+/*   Updated: 2022/02/16 18:25:17 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ void	ra(t_list **g_stack_a)
 	new = ft_lstnew((*g_stack_a)->content);
 	ft_lstadd_back(&head, new);
 	(*g_stack_a) = (*g_stack_a)->next;
+	(*g_stack_a)->prev = NULL;
 	free (head);
 	write(1, "ra\n", 3);
 }
@@ -82,6 +83,7 @@ void	rra(t_list **g_stack_a)
 		last = head;
 		head = head->next;
 	}
+	//(*g_stack_a)->prev = NULL;
 	last->next = NULL;
 	free (head);
 	write(1, "rra\n", 4);
