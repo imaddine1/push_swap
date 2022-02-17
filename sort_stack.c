@@ -6,7 +6,7 @@
 /*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 11:04:15 by iharile           #+#    #+#             */
-/*   Updated: 2022/02/16 18:55:51 by iharile          ###   ########.fr       */
+/*   Updated: 2022/02/17 16:18:53 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,43 +41,35 @@ void	three_sort(t_list **g_stack_a, int i)
 	}
 }
 
+void	initialize(t_init *initialize, t_list **g_stack_a)
+{
+	initialize->index = 0;
+	initialize->j = 0;
+	initialize->head = *g_stack_a;
+	initialize->last = ft_lstlast(*g_stack_a);
+}
+
 void	first_to_push(t_list **g_stack_a, t_list **stack_b, int *tab, int size)
 {
 	int		i;
-	int		index;
-	t_list	*last;
-	t_list	*head;
-	int		j;
+	t_init	init;
 
-	index = 0;
-	j = 0;
-	last = ft_lstlast(*g_stack_a);
-	head = *g_stack_a;
-//	printf ("head is %d\n", head->prev);
-	while (head && last)
+	initialize(&init, g_stack_a);
+	while (init.head && init.last)
 	{
-		//printf ("we can be here\n");
-		i = 0;
-		while (i < size)
+		i = -1;
+		while (++i < size)
 		{
-			if (tab[i] == head->content)
-				j = the_top(g_stack_a, stack_b, index);
-			else if (tab[i] == last->content)
-				j = the_bottom(g_stack_a, stack_b, index);
-			i++;
+			if (tab[i] == init.head->content)
+				init.j = the_top(g_stack_a, stack_b, init.index);
+			else if (tab[i] == init.last->content)
+				init.j = the_bottom(g_stack_a, stack_b, init.index);
 		}
-		//printf ("im here %d\n", j);
-		index++;
-		head = head->next;
-		last = last->prev;
-		if (j == 1)
-		{
-			j = 0;
-			head = *g_stack_a;
-			last = ft_lstlast(*g_stack_a);
-			index = 0;
-			//printf ("this is begin %d this is end %d\n", head->content, last->content);
-		}
+		init.index++;
+		init.head = init.head->next;
+		init.last = init.last->prev;
+		if (init.j == 1)
+			initialize(&init, g_stack_a);
 	}
 	free (tab);
 }
@@ -99,14 +91,12 @@ void	put_data(t_list **g_stack_a, t_list **g_stack_b, int min, int max)
 	{
 		if ((stack_a)->content >= min && (stack_a)->content <= max - 1)
 		{
-			printf ("%d ", stack_a->content);
 			tab[j] = stack_a->content;
 			j++;
 		}
 		i++;
 		stack_a = stack_a->next;
 	}
-	printf ("\n");
 	first_to_push(g_stack_a, g_stack_b, tab, max - min);
 }
 
@@ -127,17 +117,13 @@ void	sort_any_stack(t_list **g_stack_a, t_list **g_stack_b, int numbers)
 	{
 		while (i <= 4)
 		{
-			printf ("this is min = %d  max = %d\n", min , moves);
 			put_data (g_stack_a, g_stack_b, min, moves);
 			min = moves;
 			moves += sum;
 			i++;
 		}
 	}
+	moves = min + last_move;
 	if (last_move > 0)
-	{
-		moves = min + last_move;
-		printf ("this is min = %d  max = %d\n", min, moves);
 		put_data (g_stack_a, g_stack_b, min, moves);
-	}
 }

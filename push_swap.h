@@ -6,7 +6,7 @@
 /*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 10:40:39 by iharile           #+#    #+#             */
-/*   Updated: 2022/02/16 13:51:27 by iharile          ###   ########.fr       */
+/*   Updated: 2022/02/17 16:09:18 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,14 @@
 # include <stdlib.h>
 # include <string.h>
 
+// create structure for intialize some variables
+typedef struct initialize
+{
+	int		index;
+	int		j;
+	t_list	*head;
+	t_list	*last;
+}	t_init;
 // check inputs
 int		check_double(char **str);
 int		max_int(char *str);
