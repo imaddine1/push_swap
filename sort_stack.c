@@ -6,48 +6,12 @@
 /*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 11:04:15 by iharile           #+#    #+#             */
-/*   Updated: 2022/02/17 16:18:53 by iharile          ###   ########.fr       */
+/*   Updated: 2022/02/18 10:58:48 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft/libft.h"
 #include "push_swap.h"
-
-void	three_sort(t_list **g_stack_a, int i)
-{
-	t_list	*last;
-
-	if (check_is_sorted(g_stack_a))
-	{
-		last = ft_lstlast(*g_stack_a);
-		if (i == 3)
-			sa(g_stack_a);
-		else if ((*g_stack_a)->content == 2 && last->content == 0)
-		{
-			ra(g_stack_a);
-			sa(g_stack_a);
-		}
-		else if ((*g_stack_a)->content == 2 && last->content == 1)
-			ra(g_stack_a);
-		else if ((*g_stack_a)->content == 1 && last->content == 0)
-			rra(g_stack_a);
-		else if ((*g_stack_a)->content == 1 && last->content == 2)
-			sa(g_stack_a);
-		else if ((*g_stack_a)->content == 0 && last->content == 1)
-		{
-			sa(g_stack_a);
-			ra(g_stack_a);
-		}
-	}
-}
-
-void	initialize(t_init *initialize, t_list **g_stack_a)
-{
-	initialize->index = 0;
-	initialize->j = 0;
-	initialize->head = *g_stack_a;
-	initialize->last = ft_lstlast(*g_stack_a);
-}
 
 void	first_to_push(t_list **g_stack_a, t_list **stack_b, int *tab, int size)
 {
@@ -108,19 +72,20 @@ void	sort_any_stack(t_list **g_stack_a, t_list **g_stack_b, int numbers)
 	int	i;
 	int	min;
 
-	i = 1;
+	if (!check_is_sorted(g_stack_a))
+		return ;
+	i = 0;
 	min = 0;
-	moves = (numbers - 3) / 4;
+	moves = (numbers - 1) / 4;
 	sum = moves;
-	last_move = (numbers - 3) - (moves * 4);
+	last_move = (numbers - 1) - (moves * 4);
 	if (moves != 0)
 	{
-		while (i <= 4)
+		while (++i <= 4)
 		{
 			put_data (g_stack_a, g_stack_b, min, moves);
 			min = moves;
 			moves += sum;
-			i++;
 		}
 	}
 	moves = min + last_move;

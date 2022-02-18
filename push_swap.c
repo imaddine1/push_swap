@@ -6,7 +6,7 @@
 /*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 10:44:32 by iharile           #+#    #+#             */
-/*   Updated: 2022/02/16 18:26:56 by iharile          ###   ########.fr       */
+/*   Updated: 2022/02/18 10:45:26 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,30 +82,8 @@ int	main(int ac, char **av)
 	content_to_index(g_stack_a, tab);
 	if (i == 4 || i == 3)
 		three_sort(&g_stack_a, i);
+	if (i == 5 || i == 6)
+		five_sort(&g_stack_a, &g_stack_b, i);
 	if (i > 4)
 		sort_any_stack(&g_stack_a, &g_stack_b, i - 1);
-	/*
-	ra(&g_stack_a);
-	rra(&g_stack_a);
-	t_list *last = ft_lstlast(g_stack_a);
-	pb(&g_stack_a, &g_stack_b);
-	pb(&g_stack_a, &g_stack_b);
-	while (g_stack_a)
-	{
-		printf ("%d \n", g_stack_a->content);
-		g_stack_a = g_stack_a->next;
-	}
-	printf ("-----------\n");
-	while (last)
-	{
-		printf ("%d\n", last->content);
-		last = last->prev;
-	}
-	printf ("------------\n");
-	while (g_stack_b)
-	{
-		printf ("%d\n", g_stack_b->content);
-		g_stack_b = g_stack_b->next;
-	}*/
-	return (0);
 }
