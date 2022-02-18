@@ -6,7 +6,7 @@
 /*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 11:04:15 by iharile           #+#    #+#             */
-/*   Updated: 2022/02/18 10:58:48 by iharile          ###   ########.fr       */
+/*   Updated: 2022/02/18 19:14:10 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,17 +64,15 @@ void	put_data(t_list **g_stack_a, t_list **g_stack_b, int min, int max)
 	first_to_push(g_stack_a, g_stack_b, tab, max - min);
 }
 
-void	sort_any_stack(t_list **g_stack_a, t_list **g_stack_b, int numbers)
+void	sort_any_stack(t_list **stack_a, t_list **stack_b, int numbers, int i)
 {
 	int	sum;
 	int	moves;
 	int	last_move;
-	int	i;
 	int	min;
 
-	if (!check_is_sorted(g_stack_a))
+	if (!check_is_sorted(stack_a))
 		return ;
-	i = 0;
 	min = 0;
 	moves = (numbers - 1) / 4;
 	sum = moves;
@@ -83,12 +81,14 @@ void	sort_any_stack(t_list **g_stack_a, t_list **g_stack_b, int numbers)
 	{
 		while (++i <= 4)
 		{
-			put_data (g_stack_a, g_stack_b, min, moves);
+			put_data (stack_a, stack_b, min, moves);
 			min = moves;
 			moves += sum;
 		}
 	}
 	moves = min + last_move;
 	if (last_move > 0)
-		put_data (g_stack_a, g_stack_b, min, moves);
+		put_data (stack_a, stack_b, min, moves);
+	check_stack_b(stack_b);
+	printf ("------ %d\n", ft_lstsize(*stack_b));
 }

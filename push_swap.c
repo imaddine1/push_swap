@@ -6,7 +6,7 @@
 /*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 10:44:32 by iharile           #+#    #+#             */
-/*   Updated: 2022/02/18 10:45:26 by iharile          ###   ########.fr       */
+/*   Updated: 2022/02/18 19:10:21 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,8 +66,6 @@ int	main(int ac, char **av)
 	t_list	*g_stack_b;
 	t_list	*g_stack_a;
 
-	if (!*av)
-		return (0);
 	if (ac == 1 || !check_int(av) || !check_double(av))
 	{
 		write (2, "Error\n", 6);
@@ -82,8 +80,9 @@ int	main(int ac, char **av)
 	content_to_index(g_stack_a, tab);
 	if (i == 4 || i == 3)
 		three_sort(&g_stack_a, i);
-	if (i == 5 || i == 6)
+	else if (i == 5 || i == 6)
 		five_sort(&g_stack_a, &g_stack_b, i);
-	if (i > 4)
-		sort_any_stack(&g_stack_a, &g_stack_b, i - 1);
+	else if (i > 6)
+		sort_any_stack(&g_stack_a, &g_stack_b, i - 1, 0);
+	return (0);
 }
