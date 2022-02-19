@@ -6,7 +6,7 @@
 /*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 10:44:32 by iharile           #+#    #+#             */
-/*   Updated: 2022/02/18 19:10:21 by iharile          ###   ########.fr       */
+/*   Updated: 2022/02/19 16:18:56 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,5 +84,17 @@ int	main(int ac, char **av)
 		five_sort(&g_stack_a, &g_stack_b, i);
 	else if (i > 6)
 		sort_any_stack(&g_stack_a, &g_stack_b, i - 1, 0);
+	printf ("-------------------\n");
+	while (g_stack_a)
+	{
+		printf ("%d\n", g_stack_a->content);
+		g_stack_a = g_stack_a->next;
+	}
+	printf ("-----------------\n");
+		while (g_stack_b)
+	{
+		printf ("%d\n", g_stack_b->content);
+		g_stack_b = g_stack_b->next;
+	}
 	return (0);
 }

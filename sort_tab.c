@@ -6,7 +6,7 @@
 /*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 11:57:06 by iharile           #+#    #+#             */
-/*   Updated: 2022/02/18 10:46:05 by iharile          ###   ########.fr       */
+/*   Updated: 2022/02/19 11:24:30 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,12 +77,12 @@ int	check_is_sorted(t_list **g_stack_a)
 	return (1);
 }
 
-void	initialize(t_init *initialize, t_list **g_stack_a)
+void	initialize(t_init *initialize, t_list **stack)
 {
 	initialize->index = 0;
 	initialize->j = 0;
-	initialize->head = *g_stack_a;
-	initialize->last = ft_lstlast(*g_stack_a);
+	initialize->head = *stack;
+	initialize->last = ft_lstlast(*stack);
 }
 /*
 int	main(int ac, char **av)

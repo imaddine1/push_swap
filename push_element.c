@@ -6,7 +6,7 @@
 /*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 11:42:55 by iharile           #+#    #+#             */
-/*   Updated: 2022/02/16 13:51:17 by iharile          ###   ########.fr       */
+/*   Updated: 2022/02/19 16:14:13 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,37 @@ int	the_bottom(t_list **g_stack_a, t_list **g_stack_b, int index)
 		i++;
 	}
 	pb(g_stack_a, g_stack_b);
+	return (1);
+}
+
+int	the_top_b(t_list **g_stack_a, t_list **g_stack_b, int index)
+{
+	int		i;
+	t_list	*head;
+
+	i = 0;
+	head = (*g_stack_a);
+	while (i < index)
+	{
+		rb(g_stack_a);
+		i++;
+	}
+	pa(g_stack_a, g_stack_b);
+	return (1);
+}
+
+int	the_bottom_b(t_list **g_stack_a, t_list **g_stack_b, int index)
+{
+	int		i;
+	t_list	*head;
+
+	i = 0;
+	head = (*g_stack_a);
+	while (i <= index)
+	{
+		rrb(g_stack_a);
+		i++;
+	}	
+	pa(g_stack_a, g_stack_b);
 	return (1);
 }

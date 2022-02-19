@@ -6,7 +6,7 @@
 /*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 14:25:02 by iharile           #+#    #+#             */
-/*   Updated: 2022/02/18 09:13:54 by iharile          ###   ########.fr       */
+/*   Updated: 2022/02/19 16:34:28 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ void	rb(t_list **g_stack_b)
 	new = ft_lstnew((*g_stack_b)->content);
 	ft_lstadd_back(&head, new);
 	(*g_stack_b) = (*g_stack_b)->next;
+	(*g_stack_b)->prev = NULL;
 	free (head);
 	write(1, "rb\n", 3);
 }

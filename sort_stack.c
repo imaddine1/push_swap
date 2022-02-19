@@ -6,34 +6,34 @@
 /*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 11:04:15 by iharile           #+#    #+#             */
-/*   Updated: 2022/02/18 19:14:10 by iharile          ###   ########.fr       */
+/*   Updated: 2022/02/19 16:41:46 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft/libft.h"
 #include "push_swap.h"
 
-void	first_to_push(t_list **g_stack_a, t_list **stack_b, int *tab, int size)
+void	first_to_push(t_list **stack_a, t_list **stack_b, int *tab, int size)
 {
 	int		i;
 	t_init	init;
 
-	initialize(&init, g_stack_a);
+	initialize(&init, stack_a);
 	while (init.head && init.last)
 	{
 		i = -1;
 		while (++i < size)
 		{
 			if (tab[i] == init.head->content)
-				init.j = the_top(g_stack_a, stack_b, init.index);
+				init.j = the_top(stack_a, stack_b, init.index);
 			else if (tab[i] == init.last->content)
-				init.j = the_bottom(g_stack_a, stack_b, init.index);
+				init.j = the_bottom(stack_a, stack_b, init.index);
 		}
 		init.index++;
 		init.head = init.head->next;
 		init.last = init.last->prev;
 		if (init.j == 1)
-			initialize(&init, g_stack_a);
+			initialize(&init, stack_a);
 	}
 	free (tab);
 }
@@ -89,6 +89,5 @@ void	sort_any_stack(t_list **stack_a, t_list **stack_b, int numbers, int i)
 	moves = min + last_move;
 	if (last_move > 0)
 		put_data (stack_a, stack_b, min, moves);
-	check_stack_b(stack_b);
-	printf ("------ %d\n", ft_lstsize(*stack_b));
+	check_stack_b(stack_a, stack_b);
 }
