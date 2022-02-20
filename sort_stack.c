@@ -6,7 +6,7 @@
 /*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 11:04:15 by iharile           #+#    #+#             */
-/*   Updated: 2022/02/19 16:41:46 by iharile          ###   ########.fr       */
+/*   Updated: 2022/02/20 15:40:54 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,24 @@ void	first_to_push(t_list **stack_a, t_list **stack_b, int *tab, int size)
 		while (++i < size)
 		{
 			if (tab[i] == init.head->content)
+			{
 				init.j = the_top(stack_a, stack_b, init.index);
+				initialize(&init, stack_a);
+				init.j = 1;
+			}
 			else if (tab[i] == init.last->content)
+			{
 				init.j = the_bottom(stack_a, stack_b, init.index);
+				initialize(&init, stack_a);
+				init.j = 1;
+			}
 		}
 		init.index++;
-		init.head = init.head->next;
-		init.last = init.last->prev;
+		if (ft_lstsize(*stack_a) > 0)
+		{
+			init.head = init.head->next;
+			init.last = init.last->prev;
+		}
 		if (init.j == 1)
 			initialize(&init, stack_a);
 	}
@@ -81,6 +92,7 @@ void	sort_any_stack(t_list **stack_a, t_list **stack_b, int numbers, int i)
 	{
 		while (++i <= 4)
 		{
+			//printf ("the min == %d && max == %d\n", min, moves);
 			put_data (stack_a, stack_b, min, moves);
 			min = moves;
 			moves += sum;
@@ -88,6 +100,9 @@ void	sort_any_stack(t_list **stack_a, t_list **stack_b, int numbers, int i)
 	}
 	moves = min + last_move;
 	if (last_move > 0)
+	{
+		//printf ("the min == %d && max == %d\n", min, moves);
 		put_data (stack_a, stack_b, min, moves);
+	}
 	check_stack_b(stack_a, stack_b);
 }

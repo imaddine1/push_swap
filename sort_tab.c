@@ -6,7 +6,7 @@
 /*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 11:57:06 by iharile           #+#    #+#             */
-/*   Updated: 2022/02/19 11:24:30 by iharile          ###   ########.fr       */
+/*   Updated: 2022/02/20 10:45:40 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ void	initialize(t_init *initialize, t_list **stack)
 {
 	initialize->index = 0;
 	initialize->j = 0;
-	initialize->head = *stack;
+	initialize->head = (*stack);
 	initialize->last = ft_lstlast(*stack);
 }
 /*

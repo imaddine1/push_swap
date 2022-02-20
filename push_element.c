@@ -6,7 +6,7 @@
 /*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 11:42:55 by iharile           #+#    #+#             */
-/*   Updated: 2022/02/19 16:14:13 by iharile          ###   ########.fr       */
+/*   Updated: 2022/02/20 15:41:12 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,60 @@ int	the_bottom(t_list **g_stack_a, t_list **g_stack_b, int index)
 	pb(g_stack_a, g_stack_b);
 	return (1);
 }
+/*
+void	check_cases(t_list *head, t_list **stack_a)
+{
+	static int	i;
+	static int	j;
+
+	i = i + 1;
+	if (head->content == (*stack_a)->content + 3)
+	{	
+		ra(stack_a);
+		j = 1;
+		printf ("----i do it\n");
+	}
+	else if (head->content < (*stack_a)->content)
+	{
+		printf ("------swap\n");
+		sa(stack_a);
+	}
+	if (i == 3 && j == 1)
+	{
+		printf ("--------i need to go %d && %d\n", i, j);
+		rra(stack_a);
+		i = 0;
+		j = 0;
+	}
+	else if (i == 3)
+		i = 0;
+}
+*/
+
+void	check_cases(t_list *head, t_list **stack_a)
+{
+	static int	i;
+	static int	j;
+	static int	node;
+
+	i++;
+	if (node == 0)
+		node = (*stack_a)->content;
+	if (node == (*stack_a)->content + 3)
+	{
+		j = 1;
+		ra (stack_a);
+	}
+	else if (head->content < (*stack_a)->content)
+		sa(stack_a);
+	if (i == 3 && j == 1)
+		rra(stack_a);
+	if (i == 3)
+	{
+		i = 0;
+		node = (*stack_a)->content;
+	}
+}
 
 int	the_top_b(t_list **g_stack_a, t_list **g_stack_b, int index)
 {
@@ -50,10 +104,11 @@ int	the_top_b(t_list **g_stack_a, t_list **g_stack_b, int index)
 	head = (*g_stack_a);
 	while (i < index)
 	{
-		rb(g_stack_a);
+		rb(g_stack_b);
 		i++;
 	}
 	pa(g_stack_a, g_stack_b);
+	check_cases(head, g_stack_a);
 	return (1);
 }
 
@@ -66,9 +121,10 @@ int	the_bottom_b(t_list **g_stack_a, t_list **g_stack_b, int index)
 	head = (*g_stack_a);
 	while (i <= index)
 	{
-		rrb(g_stack_a);
+		rrb(g_stack_b);
 		i++;
 	}	
 	pa(g_stack_a, g_stack_b);
+	check_cases(head, g_stack_a);
 	return (1);
 }
