@@ -6,7 +6,7 @@
 /*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 18:42:30 by iharile           #+#    #+#             */
-/*   Updated: 2022/02/20 15:40:15 by iharile          ###   ########.fr       */
+/*   Updated: 2022/02/20 17:47:27 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,11 +85,24 @@ void	check_stack_b(t_list **stack_a, t_list **stack_b)
 	min = max - 2;
 	while (ft_lstsize(*stack_b) >= 3)
 	{
-		printf ("this is the first three %d, %d\n", min, max);
+		//printf ("this is the first three %d, %d\n", min, max);
 		take_data_b(stack_a, stack_b, min, max);
 		max = min - 1;
 		min = max - 2;
 	}
+	if (ft_lstsize(*stack_b) == 2 && !check_is_sorted(stack_b))
+	{
+		sb(stack_b);
+		pa(stack_a, stack_b);
+		pa(stack_a, stack_b);
+	}
+	else if (ft_lstsize(*stack_b) == 2 && check_is_sorted(stack_b))
+	{
+		pa(stack_a, stack_b);
+		pa(stack_a, stack_b);
+	}
+	else
+		pa(stack_a, stack_b);
 }
 /*
 void	check_stack_b(t_list **stack_a, t_list **stack_b)

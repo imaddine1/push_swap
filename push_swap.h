@@ -6,7 +6,7 @@
 /*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 10:40:39 by iharile           #+#    #+#             */
-/*   Updated: 2022/02/19 11:34:46 by iharile          ###   ########.fr       */
+/*   Updated: 2022/02/20 16:23:16 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	pa(t_list **g_stack_a, t_list **g_stack_b);
 void	ra(t_list **g_stack_a);
 void	rb(t_list **g_stack_b);
 void	sa(t_list **g_stack_a);
-void	sa(t_list **g_stack_b);
+void	sb(t_list **g_stack_b);
 void	rra(t_list **g_stack_a);
 void	rrb(t_list **g_stack_b);
 void	rrr(t_list **g_stack_a, t_list **g_stack_b);
