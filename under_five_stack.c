@@ -6,41 +6,42 @@
 /*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 10:57:47 by iharile           #+#    #+#             */
-/*   Updated: 2022/02/18 18:05:54 by iharile          ###   ########.fr       */
+/*   Updated: 2022/02/21 10:03:09 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "libft/libft.h"
 
-void	three_sort(t_list **g_stack_a, int i)
+void	three_sort(t_list **sta, int i)
 {
 	t_list	*last;
+	int		dt;	
+	int		fc;
 
-	if (check_is_sorted(g_stack_a))
+	fc = (*sta)->content;
+	last = ft_lstlast(*sta);
+	dt = (*sta)->next->content;
+	if (i == 3)
+		sa(sta);
+	else if ((*sta)->content > dt && dt > last->content)
 	{
-		last = ft_lstlast(*g_stack_a);
-		if (i == 3)
-			sa(g_stack_a);
-		else if ((*g_stack_a)->content == 2 && last->content == 0)
-		{
-			ra(g_stack_a);
-			sa(g_stack_a);
-		}
-		else if ((*g_stack_a)->content == 2 && last->content == 1)
-			ra(g_stack_a);
-		else if ((*g_stack_a)->content == 1 && last->content == 0)
-			rra(g_stack_a);
-		else if ((*g_stack_a)->content == 1 && last->content == 2)
-			sa(g_stack_a);
-		else if ((*g_stack_a)->content == 0 && last->content == 1)
-		{
-			sa(g_stack_a);
-			ra(g_stack_a);
-		}
+		ra(sta);
+		sa(sta);
+	}
+	else if ((*sta)->content > dt && dt < last->content && (*sta)->content > last->content)
+		ra(sta);
+	else if ((*sta)->content < dt && dt > last->content)
+		rra(sta);
+	else if ((*sta)->content > dt && dt < last->content)
+		sa(sta);
+	else if ((*sta)->content < dt && dt > last->content)
+	{
+		sa(sta);
+		ra(sta);
 	}
 }
-
+/*
 int	location(t_list **g_stack_a, int num)
 {
 	t_list	*head;
@@ -98,3 +99,4 @@ void	five_sort(t_list **g_stack_a, t_list **g_stack_b, int i)
 		ra(g_stack_a);
 	}
 }
+*/

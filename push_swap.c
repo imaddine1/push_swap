@@ -6,7 +6,7 @@
 /*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 10:44:32 by iharile           #+#    #+#             */
-/*   Updated: 2022/02/20 17:48:01 by iharile          ###   ########.fr       */
+/*   Updated: 2022/02/21 10:02:29 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,18 +78,18 @@ int	main(int ac, char **av)
 	while (ac > 1)
 		ft_lstadd_front(&g_stack_a, ft_lstnew(ft_atoi(av[--ac])));
 	content_to_index(g_stack_a, tab);
-	if (i == 4 || i == 3)
+	if ((i == 4 || i == 3) && !check_is_sorted(&g_stack_a))
 		three_sort(&g_stack_a, i);
-	else if (i == 5 || i == 6)
+	/*else if (i == 5 || i == 6)
 		five_sort(&g_stack_a, &g_stack_b, i);
 	else if (i > 6)
-		sort_any_stack(&g_stack_a, &g_stack_b, i - 1, 0);
-	/*printf ("--------STACK A---------\n");
+		sort_any_stack(&g_stack_a, &g_stack_b, i - 1, 0);*/
+	printf ("--------STACK A---------\n");
 	while (g_stack_a)
 	{
 		printf ("%d\n", g_stack_a->content);
 		g_stack_a = g_stack_a->next;
-	}*/
+	}
 	/*printf ("--------STACK B---------\n");
 	while (g_stack_b)
 	{
