@@ -6,12 +6,11 @@
 /*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 11:41:07 by iharile           #+#    #+#             */
-/*   Updated: 2022/02/10 13:16:12 by iharile          ###   ########.fr       */
+/*   Updated: 2022/02/21 18:07:22 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include "libft/libft.h"
 
 int	check_double(char **str)
 {

@@ -6,7 +6,7 @@
 /*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 10:40:39 by iharile           #+#    #+#             */
-/*   Updated: 2022/02/21 12:07:08 by iharile          ###   ########.fr       */
+/*   Updated: 2022/02/21 17:57:48 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,10 @@
 // create structure for intialize some variables
 typedef struct initialize
 {
-	int		index;
-	int		j;
-	t_list	*head;
-	t_list	*last;
+	int	min;
+	int	mid;
+	int	max;
+	int	index;
 }	t_init;
 // check inputs
 int		check_double(char **str);
@@ -49,9 +49,12 @@ void	rrr(t_list **g_stack_a, t_list **g_stack_b);
 void	ss(t_list **g_stack_a, t_list **g_stack_b);
 void	rr(t_list **g_stack_a, t_list **g_stack_b);
 // sorting stack
+// sorting stacl that under five numbers
 int		check_is_sorted(t_list **g_stack_a);
 void	three_sort(t_list **g_stack_a, int i);
 void	five_sort(t_list **g_stack_a, t_list **g_stack_b, int i);
+// sorting above five numbers;
+void	above_five(t_list **stack_a, t_list **stack_b);
 //void	sort_any_stack(t_list **stack_a, t_list **stack_b, int numbers, int i);
 //void	put_data(t_list **stack_a, t_list **g_stack_b, int min, int max);
 //void	first_to_push(t_list **g_stack_a, t_list **stack_b, int *tab, int size);

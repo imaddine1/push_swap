@@ -6,11 +6,10 @@
 /*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 11:42:55 by iharile           #+#    #+#             */
-/*   Updated: 2022/02/20 15:41:12 by iharile          ###   ########.fr       */
+/*   Updated: 2022/02/21 18:07:16 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
 #include "push_swap.h"
 
 int	the_top(t_list **g_stack_a, t_list **g_stack_b, int index)

@@ -6,12 +6,11 @@
 /*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 10:44:32 by iharile           #+#    #+#             */
-/*   Updated: 2022/02/21 12:10:50 by iharile          ###   ########.fr       */
+/*   Updated: 2022/02/21 18:06:55 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include "libft/libft.h"
 
 void	content_to_index(t_list *new, int *arr)
 {
@@ -80,10 +79,10 @@ int	main(int ac, char **av)
 	content_to_index(g_stack_a, tab);
 	if ((i == 4 || i == 3) && check_is_sorted(&g_stack_a))
 		three_sort(&g_stack_a, i);
-	else if (i == 5 || i == 6)
+	else if ((i == 5 || i == 6) && check_is_sorted(&g_stack_a))
 		five_sort(&g_stack_a, &g_stack_b, i);
-	/*else if (i > 6)
-		sort_any_stack(&g_stack_a, &g_stack_b, i - 1, 0);*/
+	else if (i > 6)
+		above_five(&g_stack_a, &g_stack_b);
 	printf ("--------STACK A---------\n");
 	while (g_stack_a)
 	{

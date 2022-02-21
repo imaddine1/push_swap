@@ -6,12 +6,11 @@
 /*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 14:59:57 by iharile           #+#    #+#             */
-/*   Updated: 2022/02/18 18:29:07 by iharile          ###   ########.fr       */
+/*   Updated: 2022/02/21 18:07:35 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include "libft/libft.h"
 
 void	pa(t_list **g_stack_a, t_list **g_stack_b)
 {
