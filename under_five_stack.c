@@ -6,7 +6,7 @@
 /*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 10:57:47 by iharile           #+#    #+#             */
-/*   Updated: 2022/02/21 10:03:09 by iharile          ###   ########.fr       */
+/*   Updated: 2022/02/21 10:12:33 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,18 +24,18 @@ void	three_sort(t_list **sta, int i)
 	dt = (*sta)->next->content;
 	if (i == 3)
 		sa(sta);
-	else if ((*sta)->content > dt && dt > last->content)
+	else if (fc > dt && dt > last->content && fc > dt)
 	{
 		ra(sta);
 		sa(sta);
 	}
-	else if ((*sta)->content > dt && dt < last->content && (*sta)->content > last->content)
+	else if (fc > dt && dt < last->content && fc > last->content)
 		ra(sta);
-	else if ((*sta)->content < dt && dt > last->content)
+	else if (fc < dt && dt > last->content && fc > last->content)
 		rra(sta);
-	else if ((*sta)->content > dt && dt < last->content)
+	else if (fc > dt && dt < last->content && fc < last->content) 
 		sa(sta);
-	else if ((*sta)->content < dt && dt > last->content)
+	else if (fc < dt && dt > last->content && fc < last->content)
 	{
 		sa(sta);
 		ra(sta);
