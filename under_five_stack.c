@@ -6,7 +6,7 @@
 /*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 10:57:47 by iharile           #+#    #+#             */
-/*   Updated: 2022/02/21 17:32:39 by iharile          ###   ########.fr       */
+/*   Updated: 2022/02/22 13:22:57 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,9 +67,9 @@ void	four_sort(t_list **g_stack_a, t_list **g_stack_b)
 
 	index = location(g_stack_a, 0);
 	if (index < 3)
-		the_top(g_stack_a, g_stack_b, index);
+		the_top(g_stack_a, g_stack_b, index, -1);
 	else
-		the_bottom(g_stack_a, g_stack_b, 0);
+		the_bottom(g_stack_a, g_stack_b, 0, -1);
 	three_sort(g_stack_a, 4);
 	pa(g_stack_a, g_stack_b);
 }
@@ -88,9 +88,9 @@ void	five_sort(t_list **g_stack_a, t_list **g_stack_b, int i)
 	{
 		index = location(g_stack_a, 1);
 		if (index < 3)
-			the_top(g_stack_a, g_stack_b, index);
+			the_top(g_stack_a, g_stack_b, index, -1);
 		else
-			the_bottom(g_stack_a, g_stack_b, 4 - index);
+			the_bottom(g_stack_a, g_stack_b, 4 - index, -1);
 		four_sort(g_stack_a, g_stack_b);
 		pa(g_stack_a, g_stack_b);
 		sa(g_stack_a);

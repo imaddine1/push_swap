@@ -6,39 +6,48 @@
 /*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 17:34:57 by iharile           #+#    #+#             */
-/*   Updated: 2022/02/21 20:46:28 by iharile          ###   ########.fr       */
+/*   Updated: 2022/02/22 16:43:33 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	initialize(t_init *init, t_list **stack_a)
+void	initialize(t_init *init, t_list **stack)
 {
 
+	init->j = 0;
 	init->index = 0;
 	init->min = 0;
-	init->max = (ft_lstsize(*stack_a) - 3) / 4 + 1;
-	init->mid = (init->min + init->max) / 2;
+	init->max = (ft_lstsize(*stack) - 3) / 4 + 1;
+	init->head = (*stack);
+	init->last = ft_lstlast(*stack);
 }
 
 void	push_to_b(t_list **stack_a, t_list **stack_b, int min, int max)
 {
-	t_list	*last;
-	t_list	*head;
-	int		index;
+	t_init	init;
+	int		i;
+	int		mid;
 
-	head = (*stack_a);
-	last = ft_lstlast(*stack_a);
-	index = 0;
-	while (head && last)
+	initialize(&init, stack_a);
+	mid = (min + (max - 1)) / 2;
+	//printf ("this is mid == %d\n", mid);
+	while (init.head && init.last)
 	{
-		if (head->content >= min && head->content < max)
-			the_top(stack_a, stack_b, index);
-		else if (last->content >= min && last->content < max)
-			the_bottom(stack_a, stack_b, index);
-		index++;
-		head = head->next;
-		last = last->prev;
+		i = min;
+		while (i < max)
+		{
+			if (init.head->content == i)
+				init.j = the_top(stack_a, stack_b, init.index, mid);
+			else if (init.last->content == i)
+				init.j = the_bottom(stack_a, stack_b, init.index, mid);
+			if (init.j == 1)
+				initialize(&init, stack_a);
+			i++;
+		}
+		init.index++;
+		init.head = init.head->next;
+		init.last = init.last->prev;
 	}
 }
 
@@ -53,8 +62,11 @@ void	above_five(t_list **stack_a, t_list **stack_b)
 	max = init.max;
 	while (ft_lstsize(*stack_a) > 3)
 	{
-		min = max;
+		push_to_b(stack_a, stack_b, min, max);
 		initialize(&init, stack_a);
+		min = max;
 		max += init.max;
 	}
+	three_sort(stack_a, 4);
+	check_stack_b(stack_a, stack_b);
 }
