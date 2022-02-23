@@ -6,7 +6,7 @@
 /*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 10:40:39 by iharile           #+#    #+#             */
-/*   Updated: 2022/02/22 17:22:11 by iharile          ###   ########.fr       */
+/*   Updated: 2022/02/23 13:31:43 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,8 @@ void	above_five(t_list **stack_a, t_list **stack_b);
 //void	first_to_push(t_list **g_stack_a, t_list **stack_b, int *tab, int size);
 int		the_top(t_list **g_stack_a, t_list **g_stack_b, int index, int mid);
 int		the_bottom(t_list **g_stack_a, t_list **g_stack_b, int index, int mid);
-int		the_top_b(t_list **stack_a, t_list **stack_b, int index, t_init i);
-int		the_bottom_b(t_list **stack_a, t_list **stack_b, int index, t_init i);
+int		the_top_b(t_list **stack_a, t_list **stack_b, int index);
+int		the_bottom_b(t_list **stack_a, t_list **stack_b, int index);
 void	initialize(t_init *initialize, t_list **stack);
 void	check_stack_b(t_list **stack_a, t_list **stack_b);
 #endif

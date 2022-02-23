@@ -6,7 +6,7 @@
 /*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 14:25:02 by iharile           #+#    #+#             */
-/*   Updated: 2022/02/21 18:07:30 by iharile          ###   ########.fr       */
+/*   Updated: 2022/02/23 12:03:03 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	sb(t_list **g_stack_b)
 	t_list	*second;
 	int		temp;
 
-	if (ft_lstsize(*g_stack_b) <= 1)
+	if (!*g_stack_b || ft_lstsize(*g_stack_b) <= 1)
 		return ;
 	head = (*g_stack_b);
 	second = (*g_stack_b)->next;

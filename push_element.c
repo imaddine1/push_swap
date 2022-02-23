@@ -6,7 +6,7 @@
 /*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 11:42:55 by iharile           #+#    #+#             */
-/*   Updated: 2022/02/22 17:25:57 by iharile          ###   ########.fr       */
+/*   Updated: 2022/02/23 13:31:28 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,35 +43,6 @@ int	the_bottom(t_list **g_stack_a, t_list **g_stack_b, int index, int mid)
 		rb (g_stack_b);
 	return (1);
 }
-/*
-void	check_cases(t_list *head, t_list **stack_a)
-{
-	static int	i;
-	static int	j;
-
-	i = i + 1;
-	if (head->content == (*stack_a)->content + 3)
-	{	
-		ra(stack_a);
-		j = 1;
-		printf ("----i do it\n");
-	}
-	else if (head->content < (*stack_a)->content)
-	{
-		printf ("------swap\n");
-		sa(stack_a);
-	}
-	if (i == 3 && j == 1)
-	{
-		printf ("--------i need to go %d && %d\n", i, j);
-		rra(stack_a);
-		i = 0;
-		j = 0;
-	}
-	else if (i == 3)
-		i = 0;
-}
-*/
 
 void	check_cases(t_list *head, t_list **stack_a)
 {
@@ -81,7 +52,7 @@ void	check_cases(t_list *head, t_list **stack_a)
 
 	i++;
 	if (node == 0)
-		node = (*stack_a)->content;
+		node = head->content;
 	if (node == (*stack_a)->content + 3)
 	{
 		j = 1;
@@ -98,7 +69,7 @@ void	check_cases(t_list *head, t_list **stack_a)
 	}
 }
 
-int	the_top_b(t_list **stack_a, t_list **stack_b, int index, t_init init)
+int	the_top_b(t_list **stack_a, t_list **stack_b, int index)
 {
 	int		i;
 	t_list	*head;
@@ -111,12 +82,11 @@ int	the_top_b(t_list **stack_a, t_list **stack_b, int index, t_init init)
 		i++;
 	}
 	pa(stack_a, stack_b);
-	initialize(&init, stack_b);
 	check_cases(head, stack_a);
 	return (1);
 }
 
-int	the_bottom_b(t_list **stack_a, t_list **stack_b, int index, t_init init)
+int	the_bottom_b(t_list **stack_a, t_list **stack_b, int index)
 {
 	int		i;
 	t_list	*head;
@@ -129,7 +99,6 @@ int	the_bottom_b(t_list **stack_a, t_list **stack_b, int index, t_init init)
 		i++;
 	}	
 	pa(stack_a, stack_b);
-	initialize(&init, stack_b);
 	check_cases(head, stack_a);
 	return (1);
 }

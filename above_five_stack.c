@@ -6,7 +6,7 @@
 /*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 17:34:57 by iharile           #+#    #+#             */
-/*   Updated: 2022/02/22 16:43:33 by iharile          ###   ########.fr       */
+/*   Updated: 2022/02/23 13:32:17 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,23 +31,35 @@ void	push_to_b(t_list **stack_a, t_list **stack_b, int min, int max)
 
 	initialize(&init, stack_a);
 	mid = (min + (max - 1)) / 2;
-	//printf ("this is mid == %d\n", mid);
+	//printf ("min == %d max == %d\n", min, max);
 	while (init.head && init.last)
 	{
 		i = min;
 		while (i < max)
 		{
 			if (init.head->content == i)
+			{
 				init.j = the_top(stack_a, stack_b, init.index, mid);
-			else if (init.last->content == i)
-				init.j = the_bottom(stack_a, stack_b, init.index, mid);
-			if (init.j == 1)
 				initialize(&init, stack_a);
+				init.j = 1;
+			}
+			else if (init.last->content == i)
+			{
+				init.j = the_bottom(stack_a, stack_b, init.index, mid);
+				initialize(&init, stack_a);
+				init.j = 1;
+			}
 			i++;
 		}
-		init.index++;
-		init.head = init.head->next;
-		init.last = init.last->prev;
+		if (init.j == 1)
+			initialize(&init, stack_a);
+		else
+		{
+			init.index++;
+			init.head = init.head->next;
+			init.last = init.last->prev;
+		}
+
 	}
 }
 
