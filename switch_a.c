@@ -6,7 +6,7 @@
 /*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 14:59:57 by iharile           #+#    #+#             */
-/*   Updated: 2022/02/21 18:07:35 by iharile          ###   ########.fr       */
+/*   Updated: 2022/02/23 18:33:53 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,17 @@ void	pa(t_list **g_stack_a, t_list **g_stack_b)
 
 	if (!*g_stack_b || ft_lstsize(*g_stack_b) < 1)
 		return ;
-	head = (*g_stack_b);
 	new = malloc (sizeof(t_list));
 	if (!new)
 		return ;
 	new->content = (*g_stack_b)->content;
 	new->next = (*g_stack_a);
+	(*g_stack_a)->prev = new;
 	(*g_stack_a) = new;
+	(*g_stack_a)->prev = NULL;
 	head = (*g_stack_b);
-	(*g_stack_b) = (*g_stack_b)->next;
+	(*g_stack_b)->prev = head;
+	(*g_stack_b) = head->next;
 	free(head);
 	write(1, "pa\n", 3);
 }
