@@ -6,7 +6,7 @@
 /*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 11:42:55 by iharile           #+#    #+#             */
-/*   Updated: 2022/02/23 13:31:28 by iharile          ###   ########.fr       */
+/*   Updated: 2022/02/23 14:05:53 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	check_cases(t_list *head, t_list **stack_a)
 	i++;
 	if (node == 0)
 		node = head->content;
-	if (node == (*stack_a)->content + 3)
+	if (node == (*stack_a)->content + 3 && i < 3)
 	{
 		j = 1;
 		ra (stack_a);

@@ -6,7 +6,7 @@
 /*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 10:44:32 by iharile           #+#    #+#             */
-/*   Updated: 2022/02/23 13:37:45 by iharile          ###   ########.fr       */
+/*   Updated: 2022/02/23 14:06:52 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,6 @@ int	main(int ac, char **av)
 	{
 		printf("%d\n", g_stack_a->content);
 		g_stack_a = g_stack_a->next;
-	}
-	*/
+	}*/
 	return (0);
 }
