@@ -6,7 +6,7 @@
 /*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 11:42:55 by iharile           #+#    #+#             */
-/*   Updated: 2022/02/23 16:07:45 by iharile          ###   ########.fr       */
+/*   Updated: 2022/02/23 19:15:08 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,29 +44,20 @@ int	the_bottom(t_list **g_stack_a, t_list **g_stack_b, int index, int mid)
 	return (1);
 }
 
-void	check_cases(t_list *head, t_list **stack_a)
+void	check_cases(t_list **stack_a)
 {
-	static int	i;
-	static int	j;
-	static int	node;
+	t_list	*head;
+	t_list	*last;
 
-	i++;
-	if (node == 0)
-	 	node = head->content;
-	if (node == (*stack_a)->content + 3 && i < 3)
-	{
-		j = 1;
+	head = *stack_a;
+//	printf ("test\n");
+	last = ft_lstlast(*stack_a);
+	if (head->content + 3 == head->next->content)
 		ra (stack_a);
-	}
-	else if (head->content < (*stack_a)->content)
-		sa(stack_a);
-	if (i == 3 && j == 1)
+	else if (head->content > head->next->content)
+		sa (stack_a);
+	if (head->content == last->content + 1)
 		rra(stack_a);
-	if (i == 3)
-	{
-		i = 0;
-		node = (*stack_a)->content;
-	}
 }
 
 int	the_top_b(t_list **stack_a, t_list **stack_b, int index)
@@ -82,10 +73,7 @@ int	the_top_b(t_list **stack_a, t_list **stack_b, int index)
 		i++;
 	}
 	pa(stack_a, stack_b);
-	//printf ("-------old == %d   new == %d\n", head->content, (*stack_a)->content);
-	//check_cases(head, stack_a);
-	if (head->content < (*stack_a)->content)
-		sa(stack_a);
+	check_cases(stack_a);
 	return (1);
 }
 
@@ -102,9 +90,6 @@ int	the_bottom_b(t_list **stack_a, t_list **stack_b, int index)
 		i++;
 	}	
 	pa(stack_a, stack_b);
-	//printf ("--------old == %d   new == %d\n", head->content, (*stack_a)->content);
-	//check_cases(head, stack_a);
-	if (head->content < (*stack_a)->content)
-		sa(stack_a);
+	check_cases(stack_a);
 	return (1);
 }
