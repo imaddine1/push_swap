@@ -6,7 +6,7 @@
 /*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 14:59:57 by iharile           #+#    #+#             */
-/*   Updated: 2022/02/23 19:01:51 by iharile          ###   ########.fr       */
+/*   Updated: 2022/02/24 11:43:40 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,6 @@ void	rra(t_list **g_stack_a)
 		last = head;
 		head = head->next;
 	}
-	//(*g_stack_a)->prev = NULL;
 	last->next = NULL;
 	free (head);
 	write(1, "rra\n", 4);

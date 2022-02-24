@@ -6,7 +6,7 @@
 /*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 11:42:55 by iharile           #+#    #+#             */
-/*   Updated: 2022/02/24 11:10:36 by iharile          ###   ########.fr       */
+/*   Updated: 2022/02/24 11:42:54 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,11 +53,13 @@ void	check_cases(t_list **stack_a)
 	last = ft_lstlast(*stack_a);
 	if ((*stack_a)->content > (*stack_a)->next->content)
 		sa(stack_a);
-	if ((*stack_a)->content == last->content + 1  && (*stack_a)->content + 1 == (*stack_a)->next->content)
+	if ((*stack_a)->content == last->content + 1
+		&& (*stack_a)->content + 1 == (*stack_a)->next->content)
 		rra(stack_a);
 	else if (((*stack_a)->content + 3 == (*stack_a)->next->content))
 		ra (stack_a);
-	else if ((*stack_a)->content + 1 == (*stack_a)->next->content && (*stack_a)->content + 3 ==  (*stack_a)->next->next->content)
+	else if ((*stack_a)->content + 1 == (*stack_a)->next->content
+		&& (*stack_a)->content + 3 == (*stack_a)->next->next->content)
 		ra (stack_a);
 }
 

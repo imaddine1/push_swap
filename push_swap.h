@@ -6,7 +6,7 @@
 /*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 10:40:39 by iharile           #+#    #+#             */
-/*   Updated: 2022/02/24 11:08:54 by iharile          ###   ########.fr       */
+/*   Updated: 2022/02/24 11:34:48 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,10 +51,13 @@ void	rrr(t_list **g_stack_a, t_list **g_stack_b);
 void	ss(t_list **g_stack_a, t_list **g_stack_b);
 void	rr(t_list **g_stack_a, t_list **g_stack_b);
 // sorting stack
-// sorting stacl that under five numbers
+// sorting stack that under five numbers
 int		check_is_sorted(t_list **g_stack_a);
 void	three_sort(t_list **g_stack_a, int i);
-void	five_sort(t_list **g_stack_a, t_list **g_stack_b, int i);
+// four numbers sort
+void	four_sort(t_list **stack_a, t_list **stack_b);
+// five numbers sort
+void	five_sort(t_list **g_stack_a, t_list **g_stack_b, int j);
 // sorting above five numbers;
 void	above_five(t_list **stack_a, t_list **stack_b);
 //void	sort_any_stack(t_list **stack_a, t_list **stack_b, int numbers, int i);
