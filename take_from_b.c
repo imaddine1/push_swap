@@ -6,7 +6,7 @@
 /*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 13:36:47 by iharile           #+#    #+#             */
-/*   Updated: 2022/02/23 19:15:59 by iharile          ###   ########.fr       */
+/*   Updated: 2022/02/24 10:11:46 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,26 +18,23 @@ void	push_to_a(t_list **stack_a, t_list **stack_b, int min, int max)
 	int		i;
 
 	initialize(&init, stack_b);
-	// printf ("min == %d && max == %d\n", min, max);
-	// printf ("head == %d,  last == %d\n", init.head->content, init.last->content);
 	while (init.head && init.last)
 	{
-		i = min;
-		while (i <= max)
+		i = min - 1;
+		while (++i <= max)
 		{
-			if (init.head->content == i)
+			if (init.head->content >= min && init.head->content <= max)
 			{
-				init.j = the_top_b(stack_a, stack_b, init.index);
-				initialize(&init, stack_b);
-				init.j = 1;
+				init.j = the_top_b(stack_a, stack_b, init.index, &init);
+				//initialize(&init, stack_b);
+				//init.j = 1;
 			}
-			else if (init.last->content == i)
+			else if (init.last->content >= i && init.last->content <= max)
 			{
-				init.j = the_bottom_b(stack_a, stack_b, init.index);
-				initialize(&init, stack_b);
-				init.j = 1;
+				init.j = the_bottom_b(stack_a, stack_b, init.index, &init);
+				//initialize(&init, stack_b);
+				//init.j = 1;
 			}
-			i++;
 		}
 		if (init.j == 1)
 			initialize(&init, stack_b);
@@ -50,21 +47,10 @@ void	push_to_a(t_list **stack_a, t_list **stack_b, int min, int max)
 	}
 }
 
-
 void	check_stack_b(t_list **stack_a, t_list **stack_b)
 {
 	t_init	init;
 
-	/*while (ft_lstsize(*stack_b) >= 2)
-	{
-		initialize(&init, stack_b);
-		init.max = ft_lstsize(*stack_b) - 1;
-		init.min = init.max - 1;
-		//printf ("min == %d, max == %d\n", init.min, init.max);
-		push_to_a(stack_a, stack_b, init.min, init.max);
-	}
-	if (ft_lstsize(*stack_b) == 1)
-		pa(stack_a, stack_b);*/
 	while (ft_lstsize(*stack_b) >= 3)
 	{
 		initialize(&init, stack_b);

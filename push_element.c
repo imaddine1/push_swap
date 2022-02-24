@@ -6,7 +6,7 @@
 /*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 11:42:55 by iharile           #+#    #+#             */
-/*   Updated: 2022/02/23 19:15:08 by iharile          ###   ########.fr       */
+/*   Updated: 2022/02/24 10:09:00 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,21 +46,20 @@ int	the_bottom(t_list **g_stack_a, t_list **g_stack_b, int index, int mid)
 
 void	check_cases(t_list **stack_a)
 {
-	t_list	*head;
 	t_list	*last;
 
-	head = *stack_a;
-//	printf ("test\n");
 	last = ft_lstlast(*stack_a);
-	if (head->content + 3 == head->next->content)
-		ra (stack_a);
-	else if (head->content > head->next->content)
-		sa (stack_a);
-	if (head->content == last->content + 1)
+	if ((*stack_a)->content > (*stack_a)->next->content)
+		sa(stack_a);
+	if ((*stack_a)->content == last->content + 1  && (*stack_a)->content + 1 == (*stack_a)->next->content)
 		rra(stack_a);
+	else if (((*stack_a)->content + 3 == (*stack_a)->next->content))
+		ra (stack_a);
+	else if ((*stack_a)->content + 1 == (*stack_a)->next->content && (*stack_a)->content + 3 ==  (*stack_a)->next->next->content)
+		ra (stack_a);
 }
 
-int	the_top_b(t_list **stack_a, t_list **stack_b, int index)
+int	the_top_b(t_list **stack_a, t_list **stack_b, int index, t_init *init)
 {
 	int		i;
 	t_list	*head;
@@ -74,10 +73,11 @@ int	the_top_b(t_list **stack_a, t_list **stack_b, int index)
 	}
 	pa(stack_a, stack_b);
 	check_cases(stack_a);
+	initialize(init, stack_b);
 	return (1);
 }
 
-int	the_bottom_b(t_list **stack_a, t_list **stack_b, int index)
+int	the_bottom_b(t_list **stack_a, t_list **stack_b, int index, t_init *init)
 {
 	int		i;
 	t_list	*head;
@@ -91,5 +91,6 @@ int	the_bottom_b(t_list **stack_a, t_list **stack_b, int index)
 	}	
 	pa(stack_a, stack_b);
 	check_cases(stack_a);
+	initialize(init, stack_b);
 	return (1);
 }

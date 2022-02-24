@@ -6,7 +6,7 @@
 /*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 17:34:57 by iharile           #+#    #+#             */
-/*   Updated: 2022/02/23 18:33:22 by iharile          ###   ########.fr       */
+/*   Updated: 2022/02/24 10:00:13 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void	initialize(t_init *init, t_list **stack)
 {
-
 	init->j = 0;
 	init->index = 0;
 	init->min = 0;
@@ -33,8 +32,8 @@ void	push_to_b(t_list **stack_a, t_list **stack_b, int min, int max)
 	mid = (min + (max - 1)) / 2;
 	while (init.head && init.last)
 	{
-		i = min;
-		while (i < max)
+		i = min - 1;
+		while (++i < max)
 		{
 			if (init.head->content == i)
 			{
@@ -48,7 +47,6 @@ void	push_to_b(t_list **stack_a, t_list **stack_b, int min, int max)
 				initialize(&init, stack_a);
 				init.j = 1;
 			}
-			i++;
 		}
 		if (init.j == 1)
 			initialize(&init, stack_a);
@@ -58,7 +56,6 @@ void	push_to_b(t_list **stack_a, t_list **stack_b, int min, int max)
 			init.head = init.head->next;
 			init.last = init.last->prev;
 		}
-
 	}
 }
 
@@ -69,8 +66,6 @@ void	above_five(t_list **stack_a, t_list **stack_b)
 	int		max;
 
 	max = 0;
-	/*initialize(&init, stack_a);
-	printf ("size == %d\n", init.max);*/
 	while (ft_lstsize(*stack_a) > 3)
 	{
 		initialize(&init, stack_a);
