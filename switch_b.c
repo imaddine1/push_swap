@@ -6,7 +6,7 @@
 /*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 14:25:02 by iharile           #+#    #+#             */
-/*   Updated: 2022/02/23 18:22:45 by iharile          ###   ########.fr       */
+/*   Updated: 2022/02/24 13:59:59 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ void	rb(t_list **g_stack_b)
 {
 	t_list	*head;
 	t_list	*new;
-	t_list	*last;
 
 	if (!*g_stack_b || ft_lstsize((*g_stack_b)) <= 1)
 		return ;
