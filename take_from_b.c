@@ -6,11 +6,18 @@
 /*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 13:36:47 by iharile           #+#    #+#             */
-/*   Updated: 2022/02/24 10:11:46 by iharile          ###   ########.fr       */
+/*   Updated: 2022/02/24 10:41:02 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	norm_a(t_init *init)
+{
+	init->index++;
+	init->head = init->head->next;
+	init->last = init->last->prev;
+}
 
 void	push_to_a(t_list **stack_a, t_list **stack_b, int min, int max)
 {
@@ -24,26 +31,14 @@ void	push_to_a(t_list **stack_a, t_list **stack_b, int min, int max)
 		while (++i <= max)
 		{
 			if (init.head->content >= min && init.head->content <= max)
-			{
 				init.j = the_top_b(stack_a, stack_b, init.index, &init);
-				//initialize(&init, stack_b);
-				//init.j = 1;
-			}
 			else if (init.last->content >= i && init.last->content <= max)
-			{
 				init.j = the_bottom_b(stack_a, stack_b, init.index, &init);
-				//initialize(&init, stack_b);
-				//init.j = 1;
-			}
 		}
 		if (init.j == 1)
 			initialize(&init, stack_b);
 		else
-		{
-			init.index++;
-			init.head = init.head->next;
-			init.last = init.last->prev;
-		}
+			norm_a(&init);
 	}
 }
 

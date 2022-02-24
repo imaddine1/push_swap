@@ -6,7 +6,7 @@
 /*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 10:40:39 by iharile           #+#    #+#             */
-/*   Updated: 2022/02/24 10:09:57 by iharile          ###   ########.fr       */
+/*   Updated: 2022/02/24 11:08:54 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,9 @@ void	above_five(t_list **stack_a, t_list **stack_b);
 //void	sort_any_stack(t_list **stack_a, t_list **stack_b, int numbers, int i);
 //void	put_data(t_list **stack_a, t_list **g_stack_b, int min, int max);
 //void	first_to_push(t_list **g_stack_a, t_list **stack_b, int *tab, int size);
-int		the_top(t_list **g_stack_a, t_list **g_stack_b, int index, int mid);
-int		the_bottom(t_list **g_stack_a, t_list **g_stack_b, int index, int mid);
+int		the_top(t_list **stack_a, t_list **stack_b, t_init *index, int mid);
+int		the_bottom(t_list **stack_a, t_list **stack_b, t_init *index, int mid);
+/// return to stack a
 int		the_top_b(t_list **stack_a, t_list **stack_b, int index, t_init *init);
 int		the_bottom_b(t_list **stack_a, t_list **st_b, int index, t_init *init);
 void	initialize(t_init *initialize, t_list **stack);

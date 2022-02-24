@@ -6,7 +6,7 @@
 /*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 17:34:57 by iharile           #+#    #+#             */
-/*   Updated: 2022/02/24 10:00:13 by iharile          ###   ########.fr       */
+/*   Updated: 2022/02/24 11:12:34 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,13 @@ void	initialize(t_init *init, t_list **stack)
 	init->max = ((ft_lstsize(*stack) - 3) / 4) + 1;
 	init->head = (*stack);
 	init->last = ft_lstlast(*stack);
+}
+
+void	norm_b_1(t_init *init)
+{
+	init->index++;
+	init->head = init->head->next;
+	init->last = init->last->prev;
 }
 
 void	push_to_b(t_list **stack_a, t_list **stack_b, int min, int max)
@@ -36,26 +43,14 @@ void	push_to_b(t_list **stack_a, t_list **stack_b, int min, int max)
 		while (++i < max)
 		{
 			if (init.head->content == i)
-			{
-				init.j = the_top(stack_a, stack_b, init.index, mid);
-				initialize(&init, stack_a);
-				init.j = 1;
-			}
+				init.j = the_top(stack_a, stack_b, &init, mid);
 			else if (init.last->content == i)
-			{
-				init.j = the_bottom(stack_a, stack_b, init.index, mid);
-				initialize(&init, stack_a);
-				init.j = 1;
-			}
+				init.j = the_bottom(stack_a, stack_b, &init, mid);
 		}
 		if (init.j == 1)
 			initialize(&init, stack_a);
 		else
-		{
-			init.index++;
-			init.head = init.head->next;
-			init.last = init.last->prev;
-		}
+			norm_b_1(&init);
 	}
 }
 

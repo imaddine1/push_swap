@@ -6,41 +6,43 @@
 /*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 11:42:55 by iharile           #+#    #+#             */
-/*   Updated: 2022/02/24 10:09:00 by iharile          ###   ########.fr       */
+/*   Updated: 2022/02/24 11:10:36 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	the_top(t_list **g_stack_a, t_list **g_stack_b, int index, int mid)
+int	the_top(t_list **stack_a, t_list **stack_b, t_init *index, int mid)
 {
 	int	i;
 
 	i = 0;
-	while (i < index)
+	while (i < index->index)
 	{
-		ra(g_stack_a);
+		ra(stack_a);
 		i++;
 	}
-	pb(g_stack_a, g_stack_b);
-	if ((*g_stack_b)->content < mid)
-		rb (g_stack_b);
+	pb(stack_a, stack_b);
+	if ((*stack_b)->content < mid)
+		rb (stack_b);
+	initialize(index, stack_a);
 	return (1);
 }
 
-int	the_bottom(t_list **g_stack_a, t_list **g_stack_b, int index, int mid)
+int	the_bottom(t_list **stack_a, t_list **stack_b, t_init *index, int mid)
 {
 	int	i;
 
 	i = 0;
-	while (i <= index)
+	while (i <= index->index)
 	{
-		rra(g_stack_a);
+		rra(stack_a);
 		i++;
 	}
-	pb(g_stack_a, g_stack_b);
-	if ((*g_stack_b)->content < mid)
-		rb (g_stack_b);
+	pb(stack_a, stack_b);
+	if ((*stack_b)->content < mid)
+		rb (stack_b);
+	initialize(index, stack_a);
 	return (1);
 }
 
