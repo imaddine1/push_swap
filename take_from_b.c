@@ -6,7 +6,7 @@
 /*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 13:36:47 by iharile           #+#    #+#             */
-/*   Updated: 2022/02/24 10:41:02 by iharile          ###   ########.fr       */
+/*   Updated: 2022/02/26 15:42:06 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,15 @@ void	push_to_a(t_list **stack_a, t_list **stack_b, int min, int max)
 	initialize(&init, stack_b);
 	while (init.head && init.last)
 	{
-		i = min - 1;
-		while (++i <= max)
+		i = max + 1;
+		while (--i >= min)
 		{
-			if (init.head->content >= min && init.head->content <= max)
+			if (init.head->content == i)
 				init.j = the_top_b(stack_a, stack_b, init.index, &init);
-			else if (init.last->content >= i && init.last->content <= max)
+			else if (init.last->content == i)
 				init.j = the_bottom_b(stack_a, stack_b, init.index, &init);
+			if (init.j == 1)
+				break ;
 		}
 		if (init.j == 1)
 			initialize(&init, stack_b);
