@@ -6,7 +6,7 @@
 /*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 11:57:06 by iharile           #+#    #+#             */
-/*   Updated: 2022/02/21 17:41:06 by iharile          ###   ########.fr       */
+/*   Updated: 2022/02/27 11:22:47 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,45 @@ int	check_is_sorted(t_list **g_stack_a)
 	return (1);
 }
 
+void	content_to_index(t_list *new, int *arr)
+{
+	int		i;
+	int		size;
+
+	size = ft_lstsize(new);
+	while (new)
+	{
+		i = 0;
+		while (i < size)
+		{
+			if (new->content == arr[i])
+			{
+				new->content = i;
+				break ;
+			}
+			i++;
+		}
+		new = new->next;
+	}
+}
+
+int	*array_of_int(char **av, int ac)
+{
+	int	i;
+	int	j;
+	int	*tab;
+
+	j = 0;
+	i = 1;
+	tab = malloc(sizeof(int) * (ac - 1));
+	while (av[i])
+	{
+		tab[j] = ft_atoi(av[i]);
+		j++;
+		i++;
+	}
+	return (tab);
+}
 /*
 int	main(int ac, char **av)
 {

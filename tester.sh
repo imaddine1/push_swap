@@ -2,16 +2,17 @@
 
 MAX=0
 ITERATIONS=0
-LIMIT=700
+LIMIT=24
 FILE=problem_100
 SUM=0
-THIS=699
+THIS=OK
 
-for i in {1..1000}
+
+for i in {1..100}
 do
 		export ARG=`ruby -e "puts (1..100).to_a.shuffle.join(' ')"`
-		CHECK=`./push_swap $ARG | wc -l`
-		if [ "$CHECK" -gt "$THIS" ]
+		CHECK=`./push_swap $ARG | ./checker_Mac $ARG | tail -1`
+		if [ "$CHECK" != "$THIS" ]
 		then
 			echo "Error!"
 			echo $ARG

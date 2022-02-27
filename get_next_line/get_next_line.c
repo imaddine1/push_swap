@@ -6,11 +6,12 @@
 /*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/27 12:44:15 by iharile           #+#    #+#             */
-/*   Updated: 2021/11/27 14:59:39 by iharile          ###   ########.fr       */
+/*   Updated: 2022/02/27 13:00:08 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+#include "../libft/libft.h"
 
 char	*bf_line(char *s)
 {
@@ -97,11 +98,11 @@ char	*get_next_line(int fd)
 	char		*new;
 	char		*old;
 
-	if (fd < 0 || BUFFER_SIZE <= 0)
+	if (fd < 0)
 		return (0);
 	i = 1;
-	new = malloc (sizeof(char) * (BUFFER_SIZE + 1));
-	buff = norminette_25(fd, buff, new, BUFFER_SIZE);
+	new = malloc (sizeof(char));
+	buff = norminette_25(fd, buff, new, 1);
 	if (!buff)
 		return (0);
 	old = bf_line(buff);

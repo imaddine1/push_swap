@@ -1,5 +1,9 @@
 {
 	"files.associations": {
-		"ostream": "c"
+		"ostream": "c",
+		"get_next_line.h": "c",
+		"push_swap.h": "c",
+		"sstream": "c",
+		"cstring": "c"
 	}
 }

@@ -6,13 +6,13 @@
 /*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 14:59:57 by iharile           #+#    #+#             */
-/*   Updated: 2022/02/24 13:59:47 by iharile          ###   ########.fr       */
+/*   Updated: 2022/02/27 13:33:20 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	pa(t_list **g_stack_a, t_list **g_stack_b)
+void	pa(t_list **g_stack_a, t_list **g_stack_b, int i)
 {
 	t_list	*head;
 	t_list	*new;
@@ -31,10 +31,11 @@ void	pa(t_list **g_stack_a, t_list **g_stack_b)
 	(*g_stack_b)->prev = head;
 	(*g_stack_b) = head->next;
 	free(head);
-	write(1, "pa\n", 3);
+	if (i != 0)
+		write(1, "pa\n", 3);
 }
 
-void	ra(t_list **g_stack_a)
+void	ra(t_list **g_stack_a, int i)
 {
 	t_list	*head;
 	t_list	*new;
@@ -47,10 +48,11 @@ void	ra(t_list **g_stack_a)
 	(*g_stack_a) = (*g_stack_a)->next;
 	(*g_stack_a)->prev = NULL;
 	free (head);
-	write(1, "ra\n", 3);
+	if (i != 0)
+		write(1, "ra\n", 3);
 }
 
-void	sa(t_list **g_stack_a)
+void	sa(t_list **g_stack_a, int i)
 {
 	t_list	*head;
 	t_list	*second;
@@ -63,10 +65,11 @@ void	sa(t_list **g_stack_a)
 	temp = head->content;
 	head->content = second->content;
 	second->content = temp;
-	write(1, "sa\n", 3);
+	if (i != 0)
+		write(1, "sa\n", 3);
 }
 
-void	rra(t_list **g_stack_a)
+void	rra(t_list **g_stack_a, int i)
 {
 	t_list	*head;
 	t_list	*last;
@@ -85,11 +88,12 @@ void	rra(t_list **g_stack_a)
 	}
 	last->next = NULL;
 	free (head);
-	write(1, "rra\n", 4);
+	if (i != 0)
+		write(1, "rra\n", 4);
 }
 
-void	rrr(t_list **g_stack_a, t_list **g_stack_b)
+void	rrr(t_list **g_stack_a, t_list **g_stack_b, int i)
 {
-	rra(&(*g_stack_a));
-	rrb(&(*g_stack_b));
+	rra(g_stack_a, i);
+	rrb(g_stack_b, i);
 }
