@@ -6,7 +6,7 @@
 /*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 10:40:39 by iharile           #+#    #+#             */
-/*   Updated: 2022/02/27 13:31:19 by iharile          ###   ########.fr       */
+/*   Updated: 2022/02/27 15:58:21 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,4 +74,6 @@ void	initialize(t_init *initialize, t_list **stack);
 void	check_stack_b(t_list **stack_a, t_list **stack_b);
 // checker
 void	valid_instruction(char *str, t_list **stack_a, t_list **stack_b);
+// fucking norm
+void	norm_25(t_list **stack);
 #endif

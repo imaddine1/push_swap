@@ -6,12 +6,11 @@
 /*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 10:44:32 by iharile           #+#    #+#             */
-/*   Updated: 2022/02/27 13:36:52 by iharile          ###   ########.fr       */
+/*   Updated: 2022/02/27 16:47:44 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
 
 int	main(int ac, char **av)
 {

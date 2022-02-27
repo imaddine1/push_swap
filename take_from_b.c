@@ -6,7 +6,7 @@
 /*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 13:36:47 by iharile           #+#    #+#             */
-/*   Updated: 2022/02/27 14:16:59 by iharile          ###   ########.fr       */
+/*   Updated: 2022/02/27 15:54:04 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,4 +68,10 @@ void	check_stack_b(t_list **stack_a, t_list **stack_b)
 	}
 	else
 		pa(stack_a, stack_b, 1);
+}
+
+void	ss(t_list **g_stack_a, t_list **g_stack_b, int i)
+{
+	sa(g_stack_a, i);
+	sb(g_stack_b, i);
 }
