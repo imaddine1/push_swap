@@ -6,7 +6,7 @@
 /*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/27 10:04:13 by iharile           #+#    #+#             */
-/*   Updated: 2022/02/27 16:57:42 by iharile          ###   ########.fr       */
+/*   Updated: 2022/02/27 17:07:15 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,9 @@ void	valid_instruction(char *old, t_list **stack_a, t_list **stack_b)
 		error();
 }
 
-void	check_is_ok(t_list **stack_a)
+void	check_is_ok(t_list **stack_a, t_list **stack_b)
 {
-	if (check_is_sorted(stack_a) == 0)
+	if (check_is_sorted(stack_a) == 0 && !(*stack_b))
 		write (1, "OK\n", 3);
 	else
 		write (1, "KO\n", 3);
@@ -79,6 +79,6 @@ int	main(int ac, char **av)
 			str = get_next_line(0);
 		}
 		free (str);
-		check_is_ok(&stack_a);
+		check_is_ok(&stack_a, &stack_b);
 	}
 }
