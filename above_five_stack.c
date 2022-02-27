@@ -6,7 +6,7 @@
 /*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 17:34:57 by iharile           #+#    #+#             */
-/*   Updated: 2022/02/26 16:03:30 by iharile          ###   ########.fr       */
+/*   Updated: 2022/02/27 16:57:15 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,6 @@ void	above_five(t_list **stack_a, t_list **stack_b)
 		initialize(&init, stack_a);
 		min = max;
 		max += init.max;
-		//printf ("min == %d && max == %d\n", min, max);
 		push_to_b(stack_a, stack_b, min, max);
 	}
 	three_sort(stack_a, 4);
