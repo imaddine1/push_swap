@@ -6,14 +6,13 @@
 /*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 10:18:44 by iharile           #+#    #+#             */
-/*   Updated: 2022/02/27 10:56:08 by iharile          ###   ########.fr       */
+/*   Updated: 2022/02/27 17:11:54 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 # include <unistd.h>
-# include <stdio.h>
 # include <unistd.h>
 # include <stdlib.h>
 # include <string.h>
