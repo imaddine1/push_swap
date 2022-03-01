@@ -27,7 +27,6 @@ all : $(NAME)
 
 $(NAME) : $(OBJ)
 	@make -C libft
-	@make bonus -C libft
 	$(CC) $(CFLAGS) $(OBJ) libft/libft.a -o $(NAME)
 #*.o : *.c 
 #	$(CC) $(CFLAGS) -c $< -o $@	
@@ -45,7 +44,6 @@ bonus : $(NAME_BONUS)
 
 $(NAME_BONUS) : $(OBJB)
 	@make -C libft
-	@make bonus -C libft
 	$(CC) $(CFLAGS) $(OBJB) libft/libft.a -o $(NAME_BONUS)
 
 re : fclean all

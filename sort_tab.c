@@ -58,11 +58,9 @@ int	check_is_sorted(t_list **g_stack_a)
 {
 	t_list	*head;
 	t_list	*consecutive;
-	t_list	*last;
 	int		i;
 
 	i = 1;
-	last = ft_lstlast((*g_stack_a));
 	head = (*g_stack_a);
 	consecutive = (*g_stack_a)->next;
 	while (consecutive)

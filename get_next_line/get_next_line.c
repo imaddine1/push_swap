@@ -94,13 +94,9 @@ char	*norminette_25(int fd, char *buff, char *new, int size)
 char	*get_next_line(int fd)
 {
 	static char	*buff;
-	int			i;
 	char		*new;
 	char		*old;
 
-	if (fd < 0)
-		return (0);
-	i = 1;
 	new = malloc (sizeof(char));
 	buff = norminette_25(fd, buff, new, 1);
 	if (!buff)

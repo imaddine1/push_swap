@@ -86,12 +86,8 @@ void	four_sort(t_list **g_stack_a, t_list **g_stack_b)
 
 void	five_sort(t_list **g_stack_a, t_list **g_stack_b, int j)
 {
-	t_list	*last;
-	t_list	*head;
 	int		index;
 
-	last = ft_lstlast(*g_stack_a);
-	head = *g_stack_a;
 	index = location(g_stack_a, 1);
 	if (index < 3)
 		while (++j < index)

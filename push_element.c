@@ -66,10 +66,8 @@ void	check_cases(t_list **stack_a)
 int	the_top_b(t_list **stack_a, t_list **stack_b, int index, t_init *init)
 {
 	int		i;
-	t_list	*head;
 
 	i = 0;
-	head = (*stack_a);
 	while (i < index)
 	{
 		rb(stack_b, 1);
@@ -84,10 +82,8 @@ int	the_top_b(t_list **stack_a, t_list **stack_b, int index, t_init *init)
 int	the_bottom_b(t_list **stack_a, t_list **stack_b, int index, t_init *init)
 {
 	int		i;
-	t_list	*head;
-
 	i = 0;
-	head = (*stack_a);
+
 	while (i <= index)
 	{
 		rrb(stack_b, 1);
