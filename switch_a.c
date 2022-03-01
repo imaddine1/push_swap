@@ -17,7 +17,7 @@ void	pa(t_list **g_stack_a, t_list **g_stack_b, int i)
 	t_list	*head;
 	t_list	*new;
 
-	if (!(*g_stack_b) || ft_lstsize(*g_stack_b) < 1)
+	if (!(*g_stack_b))
 		return ;
 	new = malloc (sizeof(t_list));
 	if (!new)

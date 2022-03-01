@@ -54,6 +54,15 @@ void	check_is_ok(t_list **stack_a, t_list **stack_b)
 		write (1, "KO\n", 3);
 }
 
+void	stock_data(int *tab, int ac, char **av, t_list **stack_a)
+{
+	sort_tab(tab, 0, ac - 2);
+	*stack_a = ft_lstnew(ft_atoi(av[--ac]));
+	while (ac > 1)
+		ft_lstadd_front(stack_a, ft_lstnew(ft_atoi(av[--ac])));
+	content_to_index(*stack_a, tab);
+}
+
 int	main(int ac, char **av)
 {
 	int			*tab;
@@ -61,16 +70,13 @@ int	main(int ac, char **av)
 	t_list		*stack_a;
 	char		*str;
 
+	stack_b = NULL;
 	if (!check_int(av) || !check_double(av))
 		error();
 	if (ac >= 2)
 	{
 		tab = array_of_int(av, ac);
-		sort_tab(tab, 0, ac - 2);
-		stack_a = ft_lstnew(ft_atoi(av[--ac]));
-		while (ac > 1)
-			ft_lstadd_front(&stack_a, ft_lstnew(ft_atoi(av[--ac])));
-		content_to_index(stack_a, tab);
+		stock_data(tab, ac, av, &stack_a);
 		str = get_next_line(0);
 		while (str)
 		{

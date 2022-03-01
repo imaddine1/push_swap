@@ -27,7 +27,7 @@ void	pb(t_list **g_stack_a, t_list **g_stack_b, int i)
 	t_list	*head;
 	t_list	*new;
 
-	if (!(*g_stack_a) || ft_lstsize(*g_stack_a) == 0)
+	if (!(*g_stack_a))
 		return ;
 	new = malloc(sizeof(t_list));
 	if (!new)
