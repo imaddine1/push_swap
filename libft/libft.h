@@ -19,7 +19,7 @@
 # include <strings.h>
 
 int		ft_atoi(const char *str);
-int	ft_strncmp(const char *s1, const char *s2, size_t n);
+int		ft_strncmp(const char *s1, const char *s2, size_t n);
 typedef struct s_list
 {
 	struct s_list	*prev;
