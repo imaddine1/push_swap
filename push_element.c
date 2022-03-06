@@ -6,7 +6,7 @@
 /*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 11:42:55 by iharile           #+#    #+#             */
-/*   Updated: 2022/02/27 15:04:05 by iharile          ###   ########.fr       */
+/*   Updated: 2022/03/06 11:40:15 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,8 +82,8 @@ int	the_top_b(t_list **stack_a, t_list **stack_b, int index, t_init *init)
 int	the_bottom_b(t_list **stack_a, t_list **stack_b, int index, t_init *init)
 {
 	int		i;
-	i = 0;
 
+	i = 0;
 	while (i <= index)
 	{
 		rrb(stack_b, 1);
