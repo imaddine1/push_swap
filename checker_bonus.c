@@ -48,7 +48,7 @@ void	valid_instruction(char *old, t_list **stack_a, t_list **stack_b)
 
 void	check_is_ok(t_list **stack_a, t_list **stack_b)
 {
-	if (check_is_sorted(stack_a) == 0 && !(*stack_b))
+	if (*stack_a && check_is_sorted(stack_a) == 0 && !(*stack_b))
 		write (1, "OK\n", 3);
 	else
 		write (1, "KO\n", 3);
